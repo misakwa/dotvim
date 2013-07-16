@@ -30,8 +30,6 @@ NeoBundle 'godlygeek/tabular'
 
 NeoBundle 'vim-ruby/vim-ruby'
 
-NeoBundle 'sjl/gundo.vim'
-
 NeoBundle 'altercation/vim-colors-solarized'
 
 NeoBundle 'mileszs/ack.vim'
