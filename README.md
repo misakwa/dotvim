@@ -1,0 +1,4 @@
+dotvim
+======
+
+Vim configuration accumulated
