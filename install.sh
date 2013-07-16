@@ -7,6 +7,7 @@ d=`pwd`
 ln -s $d ~/.vim
 ln -s ~/.vim/vimrc ~/.vimrc
 
-vim -u neobundles.vim +NeoBundleInstall! +NeoBundleClean! +qall
+# Remove lingering link
+rm dotvim
 
-exit(0)
+vim -u neobundles.vim +NeoBundleInstall! +NeoBundleClean! +qall
