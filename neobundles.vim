@@ -57,6 +57,9 @@ NeoBundle 'kien/ctrlp.vim'
 
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-easytags'
+
+NeoBundle 'joonty/vdebug.git'
+
 " vim-scripts
 NeoBundle 'vim-scripts/vcscommand.vim'
 NeoBundle 'vim-scripts/IndexedSearch'
