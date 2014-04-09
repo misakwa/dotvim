@@ -48,7 +48,8 @@ NeoBundle 'fholgado/minibufexpl.vim'
 
 NeoBundle 'ervandew/supertab'
 
-NeoBundle 'mattn/zencoding-vim'
+"NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'mattn/emmet-vim'
 
 NeoBundle 'rodjek/vim-puppet'
 
