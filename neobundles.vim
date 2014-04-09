@@ -55,6 +55,8 @@ NeoBundle 'rodjek/vim-puppet'
 
 NeoBundle 'kien/ctrlp.vim'
 
+NeoBundle 'xolox/vim-misc'
+NeoBundle 'xolox/vim-easytags'
 " vim-scripts
 NeoBundle 'vim-scripts/vcscommand.vim'
 NeoBundle 'vim-scripts/IndexedSearch'
