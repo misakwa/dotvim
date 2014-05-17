@@ -31,6 +31,8 @@ set linebreak   "wrap lines at convenient points
 
 set textwidth=79
 
+"set clipboard=unnamed   "clipboard
+
 if v:version >= 703
     "undo settings
     set undodir=~/.vim/undofiles
@@ -53,7 +55,7 @@ set autoindent
 "autocmd Filetype ruby setlocal sts=2 sw=2 expandtab
 
 "folding settings
-"set foldmethod=indent   "fold based on indent
+set foldmethod=indent   "fold based on indent
 set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 
