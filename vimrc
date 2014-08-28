@@ -55,7 +55,7 @@ set autoindent
 "autocmd Filetype ruby setlocal sts=2 sw=2 expandtab
 
 "folding settings
-set foldmethod=indent   "fold based on indent
+set foldmethod=syntax   "fold based on indent
 set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 
@@ -382,7 +382,7 @@ autocmd BufReadPost fugitive://*
   \ endif
 
 
-"let g:solarized_termcolors=256
+let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 colorscheme solarized
 
