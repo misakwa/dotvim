@@ -79,6 +79,8 @@ NeoBundle 'tpope/vim-markdown'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'rodjek/vim-puppet'
+NeoBundle 'lukerandall/haskellmode-vim'
+NeoBundle 'eagletmt/ghcmod-vim'
 
 NeoBundle 'scrooloose/syntastic'
 
