@@ -1,8 +1,6 @@
 if has('vim_starting')
     set nocompatible
-
     set runtimepath+=~/.vim/bundle/neobundle.vim/
-
 endif
 
 call neobundle#rc(expand('~/.vim/bundle'))
@@ -21,16 +19,17 @@ NeoBundle 'Shougo/vimproc.vim', {
       \ }
 
 " original repos on github
-NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-unimpaired'
 
-NeoBundle 'airblade/vim-gitgutter'
+" version control
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'vim-scripts/vcscommand.vim'
 
-NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'scrooloose/nerdcommenter'
 
 NeoBundle 'godlygeek/csapprox'
@@ -49,13 +48,9 @@ endif
 
 NeoBundle 'gregsexton/MatchTag'
 
-NeoBundle 'fholgado/minibufexpl.vim'
-
 NeoBundle 'ervandew/supertab'
 
 NeoBundle 'mattn/emmet-vim'
-
-NeoBundle 'kien/ctrlp.vim'
 
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-easytags'
@@ -63,7 +58,6 @@ NeoBundle 'xolox/vim-easytags'
 NeoBundle 'joonty/vdebug.git'
 
 " vim-scripts
-NeoBundle 'vim-scripts/vcscommand.vim'
 NeoBundle 'vim-scripts/IndexedSearch'
 NeoBundle 'vim-scripts/delimitMate.vim'
 NeoBundle 'vim-scripts/matchit.zip', {'rtp': 'matchit.zip'}
@@ -83,6 +77,12 @@ NeoBundle 'lukerandall/haskellmode-vim'
 NeoBundle 'eagletmt/ghcmod-vim'
 
 NeoBundle 'scrooloose/syntastic'
+
+" File browsing
+NeoBundle 'kien/ctrlp.vim'
+"NeoBundle 'wincent/command-t'
+NeoBundle 'fholgado/minibufexpl.vim'
+NeoBundle 'scrooloose/nerdtree'
 
 filetype plugin indent on
 NeoBundleCheck
