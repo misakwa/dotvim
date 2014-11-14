@@ -304,6 +304,12 @@ nnoremap <f2> :NERDTreeToggle<cr>:NERDTreeMirror<cr>
 nnoremap <f3> :TagbarToggle<cr>
 nnoremap <f4> :GundoToggle<cr>
 
+let g:gundo_width = 60
+let g:gundo_preview_height = 100
+"let g:gundo_right = 1
+"let g:gundo_preview_bottom = 1
+"let g:gundo_preview_statusline = 
+
 nnoremap j gj
 nnoremap k gk
 nnoremap <leader>l :set list!<cr>

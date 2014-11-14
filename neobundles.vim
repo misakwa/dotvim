@@ -75,6 +75,7 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'rodjek/vim-puppet'
 NeoBundle 'lukerandall/haskellmode-vim'
 NeoBundle 'eagletmt/ghcmod-vim'
+NeoBundle 'fatih/vim-go'
 
 NeoBundle 'scrooloose/syntastic'
 
@@ -83,6 +84,9 @@ NeoBundle 'kien/ctrlp.vim'
 "NeoBundle 'wincent/command-t'
 NeoBundle 'fholgado/minibufexpl.vim'
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'sjl/gundo.vim'
+NeoBundle 'terryma/vim-multiple-cursors'
 
 filetype plugin indent on
+
 NeoBundleCheck
