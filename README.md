@@ -15,5 +15,5 @@ Install exuberant-ctags ( Depends on your version of OS ) - Easy to find some in
 
 Run the installer script
 ```bash
-$ ~/.vim/installer.sh
+$ ~/.vim/install.sh
 ```
