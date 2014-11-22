@@ -39,6 +39,7 @@ NeoBundle 'honza/vim-snippets'
 
 if executable('ctags')
     NeoBundle 'majutsushi/tagbar'
+    NeoBundle 'xolox/vim-easytags'
 endif
 
 NeoBundle 'gregsexton/MatchTag'
@@ -48,7 +49,6 @@ NeoBundle 'ervandew/supertab'
 NeoBundle 'mattn/emmet-vim'
 
 NeoBundle 'xolox/vim-misc'
-NeoBundle 'xolox/vim-easytags'
 
 "NeoBundle 'joonty/vdebug.git'
 
