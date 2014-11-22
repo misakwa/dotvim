@@ -55,7 +55,7 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'xolox/vim-misc'
 NeoBundle 'xolox/vim-easytags'
 
-NeoBundle 'joonty/vdebug.git'
+"NeoBundle 'joonty/vdebug.git'
 
 " vim-scripts
 NeoBundle 'vim-scripts/IndexedSearch'
