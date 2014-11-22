@@ -12,7 +12,9 @@ $ git clone git@github.com:misakwa/dotvim.git ~/.vim
 
 Install exuberant-ctags ( Depends on your OS ) - easy to find some information on google
 
-Run the bootstrap script **Please remember to backup your .vimrc file before running this script**
+Run the bootstrap script.
+
+**Please remember to backup your .vimrc file before running this script**
 ```bash
 $ cd ~/.vim
 $ ./bootstrap.sh
