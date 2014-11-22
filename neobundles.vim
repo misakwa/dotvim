@@ -77,6 +77,8 @@ NeoBundle 'lukerandall/haskellmode-vim'
 NeoBundle 'eagletmt/ghcmod-vim'
 NeoBundle 'fatih/vim-go'
 
+NeoBundle 'jmcantrell/vim-virtualenv'
+
 NeoBundle 'scrooloose/syntastic'
 
 " File browsing
