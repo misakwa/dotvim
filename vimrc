@@ -1,12 +1,19 @@
-"Use Vim settings, rather then Vi settings (much better!).
-"This must be first, because it changes other options as a side effect.
+"Note: Skip initialization for vim-tiny or vim-small.
+if !1 | finish | endif
+
+" Improvement
 set nocompatible
 
-source ~/.vim/neobundles.vim
+if has('vim_starting')
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+    call neobundle#rc(expand('~/.vim/bundle'))
+    " vim plugins
+    source ~/.vim/neobundles.vim
+    " Prompt to instal new plugins
+    NeoBundleCheck
+endif
 
-" Vim Specific Settings
-"
-"allow backspacing over everything in insert mode
+" allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
 "store lots of :cmdline history
