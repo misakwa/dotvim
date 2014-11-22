@@ -11,6 +11,8 @@ NeoBundle 'Shougo/vimproc.vim', {
       \    },
       \ }
 
+"NeoBundle 'Shougo/unite.vim'
+
 " original repos on github
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'tpope/vim-endwise'
