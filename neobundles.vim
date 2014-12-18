@@ -85,3 +85,4 @@ NeoBundle 'sjl/gundo.vim'
 NeoBundle 'terryma/vim-multiple-cursors'
 
 NeoBundle 'bling/vim-airline'
+NeoBundle 'edkolev/tmuxline.vim'
