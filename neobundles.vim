@@ -83,3 +83,5 @@ NeoBundle 'fholgado/minibufexpl.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'terryma/vim-multiple-cursors'
+
+NeoBundle 'bling/vim-airline'
