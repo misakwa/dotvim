@@ -90,6 +90,9 @@ let g:SuperTabSetDefaultCompletionType = "context"
 let g:SuperTabContextDefaultCompletionType = '<c-x><c-o>'
 let g:SuperTabContextDiscoverDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-u>"]
 
+
+let g:tmuxline_powerline_separators = 0
+
 "turn on syntax highlighting
 syntax on
 
@@ -315,7 +318,7 @@ let g:gundo_width = 60
 let g:gundo_preview_height = 100
 "let g:gundo_right = 1
 "let g:gundo_preview_bottom = 1
-"let g:gundo_preview_statusline = 
+"let g:gundo_preview_statusline = 1
 
 nnoremap j gj
 nnoremap k gk
