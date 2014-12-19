@@ -13,22 +13,33 @@ NeoBundle 'Shougo/vimproc.vim', {
 
 "NeoBundle 'Shougo/unite.vim'
 
-" original repos on github
+" Core Plugins
 NeoBundle 'tpope/vim-surround'
+NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'tpope/vim-endwise'
-NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'scrooloose/syntastic'
 
-" version control
+" File browsing
+"NeoBundle 'wincent/command-t'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'sjl/gundo.vim'
+
+" Status line
+NeoBundle 'bling/vim-airline'
+NeoBundle 'edkolev/tmuxline.vim'
+
+" Version control
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'vim-scripts/vcscommand.vim'
-
 NeoBundle 'airblade/vim-gitgutter'
+
 NeoBundle 'scrooloose/nerdcommenter'
 
 NeoBundle 'godlygeek/csapprox'
-NeoBundle 'godlygeek/tabular'
+NeoBundleLazy 'godlygeek/tabular', {'autoload':{'commands':'Tabularize'} }
 
 NeoBundle 'altercation/vim-colors-solarized'
 
@@ -36,53 +47,68 @@ NeoBundle 'mileszs/ack.vim'
 
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
+NeoBundle 'ervandew/supertab'
+
+"NeoBundle 'joonty/vdebug.git'
+
+NeoBundle 'vim-scripts/IndexedSearch'
+NeoBundle 'vim-scripts/delimitMate.vim'
+NeoBundle 'vim-scripts/golden-ratio'
 
 if executable('ctags')
     NeoBundle 'majutsushi/tagbar'
     NeoBundle 'xolox/vim-easytags'
+    NeoBundle 'xolox/vim-misc'
 endif
 
-NeoBundle 'gregsexton/MatchTag'
 
-NeoBundle 'ervandew/supertab'
-
-NeoBundle 'mattn/emmet-vim'
-
-NeoBundle 'xolox/vim-misc'
-
-"NeoBundle 'joonty/vdebug.git'
-
-" vim-scripts
-NeoBundle 'vim-scripts/IndexedSearch'
-NeoBundle 'vim-scripts/delimitMate.vim'
+" Syntax Plugins
 NeoBundle 'vim-scripts/matchit.zip', {'rtp': 'matchit.zip'}
-NeoBundle 'vim-scripts/golden-ratio'
-
-" Syntax
-NeoBundle 'solarnz/thrift.vim'
-NeoBundle 'groenewege/vim-less'
-NeoBundle 'derekwyatt/vim-scala'
-NeoBundle 'nvie/vim-flake8'
-NeoBundle 'tpope/vim-ragtag'
-NeoBundle 'tpope/vim-markdown'
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'rodjek/vim-puppet'
-NeoBundle 'lukerandall/haskellmode-vim'
-NeoBundle 'eagletmt/ghcmod-vim'
-NeoBundle 'fatih/vim-go'
-
-NeoBundle 'jmcantrell/vim-virtualenv'
-
-NeoBundle 'scrooloose/syntastic'
-
-" File browsing
-NeoBundle 'kien/ctrlp.vim'
-"NeoBundle 'wincent/command-t'
-NeoBundle 'fholgado/minibufexpl.vim'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'sjl/gundo.vim'
-NeoBundle 'terryma/vim-multiple-cursors'
-
-NeoBundle 'bling/vim-airline'
-NeoBundle 'edkolev/tmuxline.vim'
+NeoBundleLazy 'mattn/emmet-vim', {
+\'autoload': {'filetypes':['html','xml','xsl','xslt','xsd','css','sass','scss','less','mustache'] }
+\}
+NeoBundleLazy 'gregsexton/MatchTag', {
+\ 'autoload': {'filetypes': ['html', 'xml', 'xsl', 'xslt', 'xsd'] }
+\}
+NeoBundleLazy 'solarnz/thrift.vim', {
+\ 'autoload': { 'filetypes': ['thrift'] }
+\}
+NeoBundleLazy 'groenewege/vim-less', {
+\ 'autoload': { 'filetypes': ['less', 'css'] }
+\}
+NeoBundleLazy 'derekwyatt/vim-scala', {
+\ 'autoload': { 'filetypes': ['scala'] }
+\}
+NeoBundleLazy 'nvie/vim-flake8', {
+\ 'autoload': { 'filetypes': ['python'] }
+\}
+NeoBundleLazy 'jmcantrell/vim-virtualenv', {
+\ 'autoload': {'filetypes': ['python']}
+\}
+NeoBundleLazy 'tpope/vim-ragtag', {
+\ 'autoload': { 'filetypes': ['html','xml','xsl','xslt','xsd', 'mustache'] }
+\}
+NeoBundleLazy 'tpope/vim-markdown', {
+\ 'autoload': { 'filetypes': ['markdown'] }
+\}
+NeoBundleLazy 'vim-ruby/vim-ruby', {
+\ 'autoload': {'filetypes': ['ruby'] }
+\}
+NeoBundleLazy 'tpope/vim-rails', {
+\ 'autoload': {'filetypes': ['ruby'] }
+\}
+NeoBundleLazy 'kchmck/vim-coffee-script', {
+\ 'autoload': {'filetypes': ['coffee'] }
+\}
+NeoBundleLazy 'rodjek/vim-puppet', {
+\ 'autoload': {'filetypes': ['puppet'] }
+\}
+NeoBundleLazy 'lukerandall/haskellmode-vim', {
+\ 'autoload': {'filetypes': ['haskell']}
+\}
+NeoBundleLazy 'eagletmt/ghcmod-vim', {
+\ 'autoload': { 'filetypes': ['haskell'] }
+\}
+NeoBundleLazy 'fatih/vim-go', {
+\ 'autoload': {'filetypes': ['go'] }
+\}

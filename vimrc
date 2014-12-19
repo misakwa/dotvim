@@ -38,7 +38,11 @@ set linebreak   "wrap lines at convenient points
 
 set textwidth=79
 
-"set clipboard=unnamed   "clipboard
+if has ('unnamedplus')
+  set clipboard=unnamedplus
+else
+  set clipboard=unnamed
+endif
 
 if v:version >= 703
     "undo settings
@@ -48,8 +52,29 @@ if v:version >= 703
     set colorcolumn=+1 "mark the ideal max text width
 endif
 
+" Cursor settings. This makes terminal vim sooo much nicer!
+" Tmux will only forward escape sequences to the terminal if surrounded by a DCS
+" sequence
+if exists('$TMUX')
+  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
+
 let mapleader=","
+let g:mapleader = ","
+let maplocalleader = ","
+let g:maplocalleader = ","
 set cmdheight=2
+
+set encoding=utf-8
+
+" Quick Horizontal splits
+nnoremap _ :sp<cr>
+" | : Quick vertical splits
+nnoremap <bar> :vsp<cr>
 
 "default indent settings
 set tabstop=4
@@ -74,6 +99,10 @@ set wildignore+=doc              " should not break helptags
 set wildignore+=.git             " should not break clone
 set wildignore+=.git/*             " should not break clone
 set wildignore+=*/.git/*
+set wildignore+=*/.hg/*
+set wildignore+=*/.svn/*
+set wildignore+=*/.tox/*
+set wildignore+=*/.*/*
 
 set formatoptions-=o "dont continue comments when pushing o/O
 
@@ -90,8 +119,39 @@ let g:SuperTabSetDefaultCompletionType = "context"
 let g:SuperTabContextDefaultCompletionType = '<c-x><c-o>'
 let g:SuperTabContextDiscoverDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-u>"]
 
+set tags=./.tags,./tags,./.vimtags,tags,vimtags
+let g:easytags_async = 1
+let g:easytags_python_enabled = 1
+let g:easytags_dynamic_files = 1
+" let g:easytags_python_languages = {
+"         \   'php': {
+"         \       'cmd': g:easytags_cmd,
+"         \       'args': []
+"         \
+"         \
+"         \
+"         \   }
+" }
 
+let g:arline_powerline_fonts = 0
+let g:airline#extensions#tmuxline#enabled = 0
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+
+let g:airline_left_sep = '»'
+let g:airline_right_sep = '«'
+let g:airline_symbols.branch = '⎇'
+
+let g:tmuxline_theme = 'powerline'
 let g:tmuxline_powerline_separators = 0
+let g:tmuxline_separators = {
+\ 'left': '',
+\ 'left_alt': '»',
+\ 'right': '',
+\ 'right_alt': '«',
+\ 'space': ' '}
 
 "turn on syntax highlighting
 syntax on
@@ -309,7 +369,6 @@ if exists(':Tabularize')
 endif
 
 "explorer mappings
-nnoremap <f1> :MBEToggle<cr>
 nnoremap <f2> :NERDTreeToggle<cr>:NERDTreeMirror<cr>
 nnoremap <f3> :TagbarToggle<cr>
 nnoremap <f4> :GundoToggle<cr>
@@ -330,10 +389,14 @@ cmap w!! w !sudo tee % >/dev/null
 "disable golden ratio for gui mode
 if has("gui_running")
     let g:loaded_golden_ratio=1
-    set background=light
 else
     let g:CSApprox_loaded = 1
     let g:yankring_enabled=0
+endif
+
+if $ITERM_PROFILE =~ "light"
+   set background=light
+else
     set background=dark
 endif
 
@@ -415,7 +478,32 @@ set nobackup
 set noswapfile
 
 " CtrlP
-let g:ctrlp_max_height=40
+let g:ctrp_cmd = 'CtrlPMixed'
+let g:ctrlp_max_height = 40
+let g:ctrlp_lazy_update = 350
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_custom_ignore = {
+\ 'dir':  '\v[\/]\.(git|hg|svn|tox|.*)$',
+\ 'file': '\v\.(exe|so|dll|pyc|DS_Store)$',
+\ }
+
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache but we're still going to
+  " cache
+  let g:ctrlp_max_files = 0
+endif
+let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
+let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_use_caching = 1
+
+let g:ack_use_dispatch = 1
 
 "Golden Ratio
 "let g:loaded_golden_ratio=1
@@ -428,9 +516,6 @@ if has("autocmd") && exists("+omnifunc")
     \		setlocal omnifunc=syntaxcomplete#Complete |
     \	endif
 endif
-
-" MiniBufExplorer
-let g:miniBufExplorerAutoStart = 0
 
 " Configure browser for haskell_doc.vim
 let g:haddock_browser = "open"
