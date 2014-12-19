@@ -102,7 +102,7 @@ set wildignore+=*/.git/*
 set wildignore+=*/.hg/*
 set wildignore+=*/.svn/*
 set wildignore+=*/.tox/*
-set wildignore+=*/.*/*
+"set wildignore+=*/.*/*
 
 set formatoptions-=o "dont continue comments when pushing o/O
 
@@ -386,13 +386,19 @@ nnoremap <leader>l :set list!<cr>
 cmap w!! w !sudo tee % >/dev/null
 
 "dont load csapprox if we no gui support - silences an annoying warning
-"disable golden ratio for gui mode
-if has("gui_running")
-    let g:loaded_golden_ratio=1
-else
+if !has("gui_running")
     let g:CSApprox_loaded = 1
     let g:yankring_enabled=0
 endif
+
+" GoldenView
+" Remap to avoid collissions with mine
+let g:goldenview__enable_default_mapping=0
+nmap <silent> <Leader>vs <Plug>GoldenViewSplit
+nmap <silent> <Leader>vm <Plug>GoldenViewSwitchWithLargest
+nmap <silent> <Leader>vn <Plug>GoldenViewNext
+nmap <silent> <Leader>vp <Plug>GoldenViewPrevious
+
 
 if $ITERM_PROFILE =~ "light"
    set background=light
@@ -465,7 +471,6 @@ let g:solarized_termcolors=256
 let g:solarized_termtrans=1
 colorscheme solarized
 
-
 "Show cursorline in active window only
 augroup CursorLine
     au!
@@ -483,7 +488,7 @@ let g:ctrlp_max_height = 40
 let g:ctrlp_lazy_update = 350
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = {
-\ 'dir':  '\v[\/]\.(git|hg|svn|tox|.*)$',
+\ 'dir':  '\v[\/]\.(git|hg|svn|tox)$',
 \ 'file': '\v\.(exe|so|dll|pyc|DS_Store)$',
 \ }
 
@@ -504,10 +509,6 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_use_caching = 1
 
 let g:ack_use_dispatch = 1
-
-"Golden Ratio
-"let g:loaded_golden_ratio=1
-"let g:golden_ratio_autocommand=1
 
 " Omni Completion
 if has("autocmd") && exists("+omnifunc")

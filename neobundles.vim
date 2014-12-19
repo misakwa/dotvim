@@ -22,7 +22,6 @@ NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'scrooloose/syntastic'
 
 " File browsing
-"NeoBundle 'wincent/command-t'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'sjl/gundo.vim'
@@ -53,7 +52,8 @@ NeoBundle 'ervandew/supertab'
 
 NeoBundle 'vim-scripts/IndexedSearch'
 NeoBundle 'vim-scripts/delimitMate.vim'
-NeoBundle 'vim-scripts/golden-ratio'
+"NeoBundle 'roman/golden-ratio'
+NeoBundle 'zhaocai/GoldenView.Vim'
 
 if executable('ctags')
     NeoBundle 'majutsushi/tagbar'
