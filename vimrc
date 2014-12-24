@@ -102,6 +102,7 @@ set wildignore+=*/.git/*
 set wildignore+=*/.hg/*
 set wildignore+=*/.svn/*
 set wildignore+=*/.tox/*
+set wildignore+=*.pyc,*.pyo
 "set wildignore+=*/.*/*
 
 set formatoptions-=o "dont continue comments when pushing o/O
@@ -348,9 +349,12 @@ let g:snips_organization = ""
 
 "nerdtree settings
 let g:NERDTreeMouseMode=2
-let g:NERDTreeWinSize=30
+let g:NERDTreeWinSize=45
 let g:NERDTreeQuitOnOpen=1
 let g:NERDTreeChDirMode=1
+let g:NERDTreeRespectWildIgnore=1
+let g:NERDTreeCascadeOpenSingleChildDir=1
+let g:NERDTreeAutoDeleteBuffer=1
 
 " Tabular
 if exists(':Tabularize')
@@ -508,6 +512,7 @@ let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_use_caching = 1
 
+let g:ack_prg = 'ag --smart-case --nogroup --nocolor --column'
 let g:ack_use_dispatch = 1
 
 " Omni Completion
