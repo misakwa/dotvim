@@ -95,13 +95,13 @@ set wildmode=list:longest   "make cmdline tab completion similar to bash
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
-set wildignore+=doc              " should not break helptags
+"set wildignore+=doc              " should not break helptags
 set wildignore+=.git             " should not break clone
 set wildignore+=.git/*             " should not break clone
 set wildignore+=*/.git/*
 set wildignore+=*/.hg/*
 set wildignore+=*/.svn/*
-set wildignore+=*/.tox/*
+"set wildignore+=*/.tox/*
 set wildignore+=*.pyc,*.pyo
 "set wildignore+=*/.*/*
 
