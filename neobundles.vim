@@ -112,3 +112,6 @@ NeoBundleLazy 'eagletmt/ghcmod-vim', {
 NeoBundleLazy 'fatih/vim-go', {
 \ 'autoload': {'filetypes': ['go'] }
 \}
+NeoBundleLazy 'rust-lang/rust.vim', {
+\ 'autoload': {'filetypes': ['rust', 'rs'] }
+\}
