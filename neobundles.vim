@@ -44,6 +44,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 
 NeoBundle 'mileszs/ack.vim'
 
+" Auto-completion
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'ervandew/supertab'

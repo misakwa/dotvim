@@ -404,7 +404,7 @@ nmap <silent> <Leader>vn <Plug>GoldenViewNext
 nmap <silent> <Leader>vp <Plug>GoldenViewPrevious
 
 
-if $ITERM_PROFILE =~ "light"
+if $ITERM_PROFILE =~ "Presentation"
    set background=light
 else
     set background=dark
@@ -465,6 +465,22 @@ function! HighlightRepeats() range
   endfor
 endfunction
 command! -range=% HighlightRepeats <line1>,<line2>call HighlightRepeats()
+
+" Cleanup whitespaces and preserve state
+" http://vimcasts.org/episodes/tidying-whitespace/
+function! <SID>StripTrailingWhitespaces()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+nnoremap <silent> <leader>$ :call <SID>StripTrailingWhitespaces()<CR>
+
 
 "spell check when writing commit logs
 autocmd filetype svn,*commit* setlocal spell
