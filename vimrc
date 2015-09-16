@@ -80,6 +80,7 @@ nnoremap <bar> :vsp<cr>
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+set shiftround
 set expandtab
 set autoindent
 
@@ -123,7 +124,7 @@ let g:SuperTabContextDiscoverDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:
 set tags=./.tags,./tags,./.vimtags,tags,vimtags
 let g:easytags_async = 1
 let g:easytags_python_enabled = 1
-let g:easytags_dynamic_files = 1
+let g:easytags_dynamic_files = 2
 " let g:easytags_python_languages = {
 "         \   'php': {
 "         \       'cmd': g:easytags_cmd,
