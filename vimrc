@@ -80,6 +80,7 @@ nnoremap <bar> :vsp<cr>
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
+set shiftround
 set expandtab
 set autoindent
 
@@ -95,13 +96,14 @@ set wildmode=list:longest   "make cmdline tab completion similar to bash
 set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
-set wildignore+=doc              " should not break helptags
+"set wildignore+=doc              " should not break helptags
 set wildignore+=.git             " should not break clone
 set wildignore+=.git/*             " should not break clone
 set wildignore+=*/.git/*
 set wildignore+=*/.hg/*
 set wildignore+=*/.svn/*
-set wildignore+=*/.tox/*
+"set wildignore+=*/.tox/*
+set wildignore+=*.pyc,*.pyo
 "set wildignore+=*/.*/*
 
 set formatoptions-=o "dont continue comments when pushing o/O
@@ -122,7 +124,7 @@ let g:SuperTabContextDiscoverDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:
 set tags=./.tags,./tags,./.vimtags,tags,vimtags
 let g:easytags_async = 1
 let g:easytags_python_enabled = 1
-let g:easytags_dynamic_files = 1
+let g:easytags_dynamic_files = 2
 " let g:easytags_python_languages = {
 "         \   'php': {
 "         \       'cmd': g:easytags_cmd,
@@ -348,9 +350,12 @@ let g:snips_organization = ""
 
 "nerdtree settings
 let g:NERDTreeMouseMode=2
-let g:NERDTreeWinSize=30
+let g:NERDTreeWinSize=45
 let g:NERDTreeQuitOnOpen=1
 let g:NERDTreeChDirMode=1
+let g:NERDTreeRespectWildIgnore=1
+let g:NERDTreeCascadeOpenSingleChildDir=1
+let g:NERDTreeAutoDeleteBuffer=1
 
 " Tabular
 if exists(':Tabularize')
@@ -400,7 +405,7 @@ nmap <silent> <Leader>vn <Plug>GoldenViewNext
 nmap <silent> <Leader>vp <Plug>GoldenViewPrevious
 
 
-if $ITERM_PROFILE =~ "light"
+if $ITERM_PROFILE =~ "Presentation"
    set background=light
 else
     set background=dark
@@ -441,6 +446,42 @@ function! SetCursorPosition()
         endif
     end
 endfunction
+
+"Hightlight repeated lines
+function! HighlightRepeats() range
+  let lineCounts = {}
+  let lineNum = a:firstline
+  while lineNum <= a:lastline
+    let lineText = getline(lineNum)
+    if lineText != ""
+      let lineCounts[lineText] = (has_key(lineCounts, lineText) ? lineCounts[lineText] : 0) + 1
+    endif
+    let lineNum = lineNum + 1
+  endwhile
+  exe 'syn clear Repeat'
+  for lineText in keys(lineCounts)
+    if lineCounts[lineText] >= 2
+      exe 'syn match Repeat "^' . escape(lineText, '".\^$*[]') . '$"'
+    endif
+  endfor
+endfunction
+command! -range=% HighlightRepeats <line1>,<line2>call HighlightRepeats()
+
+" Cleanup whitespaces and preserve state
+" http://vimcasts.org/episodes/tidying-whitespace/
+function! <SID>StripTrailingWhitespaces()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    %s/\s\+$//e
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+nnoremap <silent> <leader>$ :call <SID>StripTrailingWhitespaces()<CR>
+
 
 "spell check when writing commit logs
 autocmd filetype svn,*commit* setlocal spell
@@ -503,7 +544,9 @@ if executable('ag')
   " ag is fast enough that CtrlP doesn't need to cache but we're still going to
   " cache
   let g:ctrlp_max_files = 0
+  let g:ackprg = 'ag --smart-case --nogroup --nocolor --column --skip-vcs-ignores --follow'
 endif
+
 let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_use_caching = 1

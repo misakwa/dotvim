@@ -44,6 +44,7 @@ NeoBundle 'altercation/vim-colors-solarized'
 
 NeoBundle 'mileszs/ack.vim'
 
+" Auto-completion
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'ervandew/supertab'
@@ -65,7 +66,7 @@ endif
 " Syntax Plugins
 NeoBundle 'vim-scripts/matchit.zip', {'rtp': 'matchit.zip'}
 NeoBundleLazy 'mattn/emmet-vim', {
-\'autoload': {'filetypes':['html','xml','xsl','xslt','xsd','css','sass','scss','less','mustache'] }
+\'autoload': {'filetypes':['tpl', 'html','php','phtml','xml','xsl','xslt','xsd','css','sass','scss','less','mustache'] }
 \}
 NeoBundleLazy 'gregsexton/MatchTag', {
 \ 'autoload': {'filetypes': ['html', 'xml', 'xsl', 'xslt', 'xsd'] }
@@ -106,12 +107,33 @@ NeoBundleLazy 'kchmck/vim-coffee-script', {
 NeoBundleLazy 'rodjek/vim-puppet', {
 \ 'autoload': {'filetypes': ['puppet'] }
 \}
-NeoBundleLazy 'lukerandall/haskellmode-vim', {
+NeoBundleLazy 'bitc/vim-hdevtools', {
 \ 'autoload': {'filetypes': ['haskell']}
 \}
 NeoBundleLazy 'eagletmt/ghcmod-vim', {
 \ 'autoload': { 'filetypes': ['haskell'] }
 \}
+NeoBundleLazy 'neovimhaskell/haskell-vim', {
+\ 'autoload': {'filetypes': ['haskell']}
+\}
+NeoBundleLazy 'enomsg/vim-haskellConcealPlus', {
+\ 'autoload': {'filetypes': ['haskell']}
+\}
+NeoBundleLazy 'eagletmt/ghcmod-vim', {
+\ 'autoload': {'filetypes': ['haskell']}
+\}
+NeoBundleLazy 'eagletmt/neco-ghc', {
+\ 'autoload': {'filetypes': ['haskell']}
+\}
+NeoBundleLazy 'Twinside/vim-hoogle', {
+\ 'autoload': {'filetypes': ['haskell']}
+\}
 NeoBundleLazy 'fatih/vim-go', {
 \ 'autoload': {'filetypes': ['go'] }
+\}
+NeoBundleLazy 'rust-lang/rust.vim', {
+\ 'autoload': {'filetypes': ['rust', 'rs'] }
+\}
+NeoBundleLazy 'mxw/vim-jsx', {
+\ 'autoload': {'filetypes': ['javascript', 'jsx']}
 \}
