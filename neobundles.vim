@@ -77,7 +77,10 @@ NeoBundleLazy 'groenewege/vim-less', {
 \ 'autoload': { 'filetypes': ['less', 'css'] }
 \}
 NeoBundleLazy 'derekwyatt/vim-scala', {
-\ 'autoload': { 'filetypes': ['scala'] }
+\ 'autoload': { 'filetypes': ['scala', 'java'] }
+\}
+NeoBundleLazy 'mikelue/vim-maven-plugin', {
+\ 'autoload': {'filetypes': ['scala', 'java']}
 \}
 NeoBundleLazy 'nvie/vim-flake8', {
 \ 'autoload': { 'filetypes': ['python'] }
