@@ -137,3 +137,17 @@ NeoBundleLazy 'rust-lang/rust.vim', {
 NeoBundleLazy 'mxw/vim-jsx', {
 \ 'autoload': {'filetypes': ['javascript', 'jsx']}
 \}
+
+" erlang syntax files
+NeoBundleLazy 'vim-erlang/vim-erlang-runtime', {
+\ 'autoload': {'filetypes': ['erlang', 'erl']}
+\}
+NeoBundleLazy 'vim-erlang/vim-erlang-compiler', {
+\ 'autoload': {'filetypes': ['erlang', 'erl']}
+\}
+NeoBundleLazy 'vim-erlang/vim-erlang-omnicomplete', {
+\ 'autoload': {'filetypes': ['erlang', 'erl']}
+\}
+NeoBundleLazy 'vim-erlang/vim-erlang-tags', {
+\ 'autoload': {'filetypes': ['erlang', 'erl']}
+\}
