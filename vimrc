@@ -482,9 +482,35 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 nnoremap <silent> <leader>$ :call <SID>StripTrailingWhitespaces()<CR>
 
+" Like windo but restore the current window.
+function! WinDo(command)
+  let currwin=winnr()
+  execute 'windo ' . a:command
+  execute currwin . 'wincmd w'
+endfunction
+com! -nargs=+ -complete=command Windo call WinDo(<q-args>)
+
+" Like bufdo but restore the current buffer.
+function! BufDo(command)
+  let currBuff=bufnr("%")
+  execute 'bufdo ' . a:command
+  execute 'buffer ' . currBuff
+endfunction
+com! -nargs=+ -complete=command Bufdo call BufDo(<q-args>)
+
+" Like tabdo but restore the current tab.
+function! TabDo(command)
+  let currTab=tabpagenr()
+  execute 'tabdo ' . a:command
+  execute 'tabn ' . currTab
+endfunction
+com! -nargs=+ -complete=command Tabdo call TabDo(<q-args>)
 
 "spell check when writing commit logs
 autocmd filetype svn,*commit* setlocal spell
+
+"scrollbind all windows shortcut
+nnoremap <silent> <Leader>ww :Windo :set scb!<CR>
 
 " Fugitive
 nnoremap <silent> <leader>gs :Gstatus<CR>
