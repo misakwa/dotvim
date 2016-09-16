@@ -11,6 +11,9 @@ NeoBundle 'Shougo/vimproc.vim', {
       \    },
       \ }
 
+" Vim defaults
+NeoBundle 'tpope/vim-sensible'
+
 "NeoBundle 'Shougo/unite.vim'
 
 " Core Plugins
@@ -19,15 +22,16 @@ NeoBundle 'tpope/vim-dispatch'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-repeat'
 NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'tpope/vim-eunuch'
 NeoBundle 'scrooloose/syntastic'
 
 " File browsing
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'sjl/gundo.vim'
+NeoBundle 'mbbill/undotree'
 
 " Status line
-NeoBundle 'bling/vim-airline'
+NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'edkolev/tmuxline.vim'
 
 " Version control
@@ -35,11 +39,12 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'vim-scripts/vcscommand.vim'
 NeoBundle 'airblade/vim-gitgutter'
 
-NeoBundle 'scrooloose/nerdcommenter'
-
-NeoBundle 'godlygeek/csapprox'
+" Code Helpers
+NeoBundle "tpope/vim-commentary"
 NeoBundleLazy 'godlygeek/tabular', {'autoload':{'commands':'Tabularize'} }
 
+" Colours
+NeoBundle 'godlygeek/csapprox'
 NeoBundle 'altercation/vim-colors-solarized'
 
 NeoBundle 'mileszs/ack.vim'
@@ -48,7 +53,6 @@ NeoBundle 'mileszs/ack.vim'
 NeoBundle 'SirVer/ultisnips'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'ervandew/supertab'
-
 "NeoBundle 'joonty/vdebug.git'
 
 NeoBundle 'vim-scripts/IndexedSearch'
@@ -58,8 +62,7 @@ NeoBundle 'zhaocai/GoldenView.Vim'
 
 if executable('ctags')
     NeoBundle 'majutsushi/tagbar'
-    NeoBundle 'xolox/vim-easytags'
-    NeoBundle 'xolox/vim-misc'
+    NeoBundle 'ludovicchabant/vim-gutentags'
 endif
 
 
