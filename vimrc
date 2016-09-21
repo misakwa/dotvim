@@ -20,7 +20,7 @@ set showmode    "show current mode down the bottom
 set number      "show line numbers
 
 "display tabs and trailing spaces
-"set list
+" set list
 set listchars=tab:▸\ ,eol:¬,trail:.,nbsp:.
 
 set ignorecase  " Case insensitive search
@@ -115,13 +115,15 @@ set ttyfast
 filetype plugin indent on
 
 " Supertab Completion
-let g:SuperTabContextDefaultCompletionType = '<c-p>'
+set pumheight=25
+let g:SuperTabContextDefaultCompletionType = "<c-n>"
 let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
-let g:SuperTabContextTextOmniPrecedence = ['&omnifunc', '&completefunc']
+let g:SuperTabCompletionContexts = ["s:ContextText", "s:ContextDiscover"]
+let g:SuperTabContextTextOmniPrecedence = ["&omnifunc", "&completefunc"]
 let g:SuperTabContextDiscoverDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-u>"]
 let g:SuperTabClosePreviewOnPopupClose = 1
 
+"
 " Omni Completion
 if has("autocmd") && exists("+omnifunc")
     autocmd filetype *
@@ -130,6 +132,20 @@ if has("autocmd") && exists("+omnifunc")
     \   endif |
     \   call SuperTabChain(&omnifunc, "<c-p>") |
 endif
+
+set tags=./.tags,./tags,./.vimtags,tags,vimtags
+let g:easytags_async = 1
+let g:easytags_python_enabled = 1
+let g:easytags_dynamic_files = 2
+" let g:easytags_python_languages = {
+"         \   'php': {
+"         \       'cmd': g:easytags_cmd,
+"         \       'args': []
+"         \
+"         \
+"         \
+"         \   }
+" }
 
 let g:arline_powerline_fonts=0
 let g:airline#extensions#tmuxline#enabled=0
@@ -352,6 +368,7 @@ let g:NERDTreeChDirMode=1
 let g:NERDTreeRespectWildIgnore=1
 let g:NERDTreeCascadeOpenSingleChildDir=1
 let g:NERDTreeAutoDeleteBuffer=1
+let g:NETDTreeIgnore=['__pycache__', '.egg-info[[dir]]']
 
 " Tabular
 if exists(':Tabularize')
@@ -372,8 +389,8 @@ endif
 "explorer mappings
 nnoremap <f2> :NERDTreeToggle<cr>:NERDTreeMirror<cr>
 nnoremap <f3> :TagbarToggle<cr>
-
 nnoremap <f4> :UndotreeToggle<cr>
+
 let g:undotree_SplitWidth = 60
 let g:undotree_DiffpanelHeight = 80
 let g:undotree_SetFocusWhenToggle=1
@@ -382,6 +399,8 @@ let g:undotree_WindowLayout=1
 nnoremap j gj
 nnoremap k gk
 nnoremap <leader>l :set list!<cr>
+nnoremap <space> za
+vnoremap <space> za
 
 cmap w!! w !sudo tee % >/dev/null
 
@@ -576,7 +595,3 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_use_caching = 1
 
 let g:ack_use_dispatch = 1
-
-" Configure browser for haskell_doc.vim
-let g:haddock_browser = "open"
-let g:haddock_browser_callformat = "%s %s"
