@@ -521,7 +521,8 @@ endfunction
 com! -nargs=+ -complete=command Tabdo call TabDo(<q-args>)
 
 "spell check when writing commit logs
-autocmd filetype svn,*commit* setlocal spell
+" autocmd filetype svn,*commit* setlocal spell
+set spell
 
 "scrollbind all windows shortcut
 nnoremap <silent> <Leader>ww :Windo :set scb!<CR>
