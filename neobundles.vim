@@ -155,3 +155,8 @@ NeoBundleLazy 'vim-erlang/vim-erlang-omnicomplete', {
 NeoBundleLazy 'vim-erlang/vim-erlang-tags', {
 \ 'autoload': {'filetypes': ['erlang', 'erl']}
 \}
+
+" jinja2 syntax
+NeoBundleLazy 'Glench/Vim-Jinja2-Syntax', {
+\ 'autoload': {'filetypes': ['jinja', 'jinja2', 'j2']}
+\}
