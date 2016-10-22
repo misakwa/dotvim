@@ -116,7 +116,7 @@ filetype plugin indent on
 
 " Supertab Completion
 set pumheight=25
-let g:SuperTabContextDefaultCompletionType = "<c-n>"
+let g:SuperTabContextDefaultCompletionType = "<c-p>"
 let g:SuperTabDefaultCompletionType = "context"
 let g:SuperTabCompletionContexts = ["s:ContextText", "s:ContextDiscover"]
 let g:SuperTabContextTextOmniPrecedence = ["&omnifunc", "&completefunc"]
