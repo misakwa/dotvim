@@ -143,6 +143,9 @@ NeoBundleLazy 'nsf/gocode', {
 NeoBundleLazy 'rust-lang/rust.vim', {
 \ 'autoload': {'filetypes': ['rust', 'rs'] }
 \}
+NeoBundleLazy 'racer-rust/vim-racer', {
+\ 'autoload': {'filetypes': ['rust', 'rs'] }
+\}
 NeoBundleLazy 'mxw/vim-jsx', {
 \ 'autoload': {'filetypes': ['javascript', 'jsx']}
 \}
