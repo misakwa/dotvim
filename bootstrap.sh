@@ -4,4 +4,4 @@ git submodule update --init --recursive
 
 # Link vimrc
 rm $HOME/.vimrc
-ln -s $HOME/.vim/vimrc $HOME/.vimrc
+ln -s $HOME/.vim/.vimrc $HOME/.vimrc
