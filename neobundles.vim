@@ -135,6 +135,11 @@ NeoBundleLazy 'Twinside/vim-hoogle', {
 NeoBundleLazy 'fatih/vim-go', {
 \ 'autoload': {'filetypes': ['go'] }
 \}
+NeoBundleLazy 'nsf/gocode', {
+\ 'rtp': 'vim',
+\ 'autoload': {'filetypes': ['go'] },
+\ 'build': { 'unix': '~/.vim/bundle/gocode/vim/symlink.sh' }
+\}
 NeoBundleLazy 'rust-lang/rust.vim', {
 \ 'autoload': {'filetypes': ['rust', 'rs'] }
 \}
