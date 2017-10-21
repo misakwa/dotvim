@@ -29,7 +29,7 @@ Plug 'vim-scripts/vcscommand.vim'
 Plug 'airblade/vim-gitgutter'
 
 " Code Helpers
-Plug "tpope/vim-commentary"
+Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
 
 " Colours
