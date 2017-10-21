@@ -5,13 +5,8 @@ if !1 | finish | endif
 set nocompatible
 
 if has('vim_starting')
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
-    call neobundle#begin(expand('~/.vim/bundle'))
     " vim plugins
-    source ~/.vim/neobundles.vim
-    call neobundle#end()
-    " Prompt to instal new plugins
-    NeoBundleCheck
+    source ~/.vim/plugs.vim
 endif
 
 set showcmd     "show incomplete cmds down the bottom
