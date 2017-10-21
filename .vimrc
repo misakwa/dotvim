@@ -413,12 +413,11 @@ nmap <silent> <Leader>vm <Plug>GoldenViewSwitchWithLargest
 nmap <silent> <Leader>vn <Plug>GoldenViewNext
 nmap <silent> <Leader>vp <Plug>GoldenViewPrevious
 
-set background=light
-" if $ITERM_PROFILE =~ "Presentation"
-"    set background=light
-" else
-"     set background=dark
-" endif
+if $ITERM_PROFILE =~ "Presentation"
+   set background=light
+else
+    set background=dark
+endif
 
 if has('gui_macvim')
     set transparency=5      " Make the window slightly transparent
