@@ -12,7 +12,7 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-eunuch'
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 
 " File browsing
 Plug 'kien/ctrlp.vim'
