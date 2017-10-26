@@ -585,4 +585,7 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_use_caching = 1
 
 let g:ack_use_dispatch = 1
+
+let g:ale_lint_on_text_changed = 'never'
+
 set hidden
