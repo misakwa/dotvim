@@ -31,6 +31,7 @@ Plug 'airblade/vim-gitgutter'
 " Code Helpers
 Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
+Plug 'nathanaelkane/vim-indent-guides'
 
 " Colours
 Plug 'godlygeek/csapprox'

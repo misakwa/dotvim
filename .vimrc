@@ -585,4 +585,7 @@ let g:ctrlp_clear_cache_on_exit = 0
 let g:ctrlp_use_caching = 1
 
 let g:ack_use_dispatch = 1
+
+let g:indent_guides_enable_on_vim_startup = 1
+
 set hidden
