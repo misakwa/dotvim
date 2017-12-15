@@ -3,8 +3,6 @@ call plug#begin('~/.vim/plugs')
 " Vim defaults
 Plug 'tpope/vim-sensible'
 
-"Plug 'Shougo/unite.vim'
-
 " Core Plugins
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-dispatch'
