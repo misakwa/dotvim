@@ -82,6 +82,8 @@ Plug 'nsf/gocode', { 'do': './vim/symlink.sh', 'for': 'go', 'rtp': 'vim' }
 Plug 'rust-lang/rust.vim', { 'for': ['rust', 'rs'] }
 Plug 'racer-rust/vim-racer', { 'for': ['rust', 'rs'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx'] }
+Plug 'isruslan/vim-es6', { 'for': ['javascript', 'es6'] }
+Plug 'leafgarland/typescript-vim', { 'for': ['javascript', 'typescript', 'es6']}
 
 " erlang syntax files
 Plug 'vim-erlang/vim-erlang-runtime', { 'for': ['erlang', 'erl'] }
