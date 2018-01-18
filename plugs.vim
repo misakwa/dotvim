@@ -85,10 +85,11 @@ Plug 'racer-rust/vim-racer', { 'for': ['rust', 'rs'] }
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx'] }
 
 " erlang syntax files
-Plug 'vim-erlang/vim-erlang-runtime', { 'for': ['erlang', 'erl'] }
-Plug 'vim-erlang/vim-erlang-compiler', { 'for': ['erlang', 'erl'] }
-Plug 'vim-erlang/vim-erlang-omnicomplete', { 'for': ['erlang', 'erl'] }
-Plug 'vim-erlang/vim-erlang-tags', { 'for': ['erlang', 'erl'] }
+Plug 'vim-erlang/vim-erlang-runtime', { 'for': ['erlang', 'erl', 'ex', 'exs', 'eex'] }
+Plug 'vim-erlang/vim-erlang-compiler', { 'for': ['erlang', 'erl', 'ex', 'exs', 'eex'] }
+Plug 'vim-erlang/vim-erlang-omnicomplete', { 'for': ['erlang', 'erl', 'ex', 'exs', 'eex'] }
+Plug 'vim-erlang/vim-erlang-tags', { 'for': ['erlang', 'erl', 'ex', 'exs', 'eex'] }
+Plug 'elixir-editors/vim-elixir', { 'for': ['erlang', 'erl', 'ex', 'exs', 'eex'] }
 
 " jinja2 syntax
 Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['jinja', 'jinja2', 'j2'] }
