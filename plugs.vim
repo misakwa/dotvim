@@ -29,7 +29,7 @@ Plug 'airblade/vim-gitgutter'
 " Code Helpers
 Plug 'tpope/vim-commentary'
 Plug 'godlygeek/tabular', { 'on': 'Tabularize' }
-Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Yggdroot/indentLine'
 
 " Colours
 Plug 'godlygeek/csapprox'
