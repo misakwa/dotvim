@@ -126,6 +126,7 @@ if has("autocmd") && exists("+omnifunc")
     \       setlocal omnifunc=syntaxcomplete#Complete |
     \   endif |
     \   call SuperTabChain(&omnifunc, "<c-p>") |
+    \   call SuperTabSetDefaultCompletionType("<c-x><c-u>") |
 endif
 
 set tags=./.tags,./tags,./.vimtags,tags,vimtags
