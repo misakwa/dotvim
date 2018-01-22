@@ -92,6 +92,7 @@ Plug 'vim-erlang/vim-erlang-compiler', { 'for': ['erlang', 'erl', 'elixir', 'ex'
 Plug 'vim-erlang/vim-erlang-omnicomplete', { 'for': ['erlang', 'erl', 'elixir', 'ex', 'exs', 'eex'] }
 Plug 'vim-erlang/vim-erlang-tags', { 'for': ['erlang', 'erl', 'elixir', 'ex', 'exs', 'eex'] }
 Plug 'elixir-editors/vim-elixir', { 'for': ['erlang', 'erl', 'elixir', 'ex', 'exs', 'eex'] }
+Plug 'slashmili/alchemist.vim', { 'for': ['erlang', 'erl', 'elixir', 'ex', 'exs', 'eex'] }
 
 " jinja2 syntax
 Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['jinja', 'jinja2', 'j2'] }
