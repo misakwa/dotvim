@@ -1,1 +1,5 @@
 plugs
+
+# symlinks from vim gocode plugin
+ftplugin/go/gocomplete.vim
+autoload/gocomplete.vim
