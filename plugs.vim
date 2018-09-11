@@ -11,6 +11,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-eunuch'
 Plug 'w0rp/ale'
+Plug 'editorconfig/editorconfig-vim'
 
 " File browsing
 Plug 'kien/ctrlp.vim'
@@ -58,7 +59,7 @@ endif
 " Syntax Plugins
 Plug 'vim-scripts/matchit.zip', {'rtp': 'matchit.zip'}
 Plug 'mattn/emmet-vim', { 'for': ['tpl', 'html','php','phtml','xml','xsl','xslt','xsd','css','sass','scss','less','mustache'] }
-Plug 'gregsexton/MatchTag', { 'for': ['html', 'xml', 'xsl', 'xslt', 'xsd'] }
+" Plug 'gregsexton/MatchTag', { 'for': ['html', 'xml', 'xsl', 'xslt', 'xsd'] }
 Plug 'solarnz/thrift.vim', { 'for': ['thrift'] }
 Plug 'groenewege/vim-less', { 'for': ['less', 'css'] }
 Plug 'derekwyatt/vim-scala', { 'for': ['scala', 'java'] }
@@ -93,6 +94,7 @@ Plug 'vim-erlang/vim-erlang-omnicomplete', { 'for': ['erlang', 'erl', 'elixir', 
 Plug 'vim-erlang/vim-erlang-tags', { 'for': ['erlang', 'erl', 'elixir', 'ex', 'exs', 'eex'] }
 Plug 'elixir-editors/vim-elixir', { 'for': ['erlang', 'erl', 'elixir', 'ex', 'exs', 'eex'] }
 Plug 'slashmili/alchemist.vim', { 'for': ['erlang', 'erl', 'elixir', 'ex', 'exs', 'eex'] }
+Plug 'posva/vim-vue', { 'for': ['vue'] }
 
 " jinja2 syntax
 Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['jinja', 'jinja2', 'j2'] }
