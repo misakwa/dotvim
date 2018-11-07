@@ -58,7 +58,7 @@ NeoBundle 'zhaocai/GoldenView.Vim'
 
 if executable('ctags')
     NeoBundle 'majutsushi/tagbar'
-    NeoBundle 'xolox/vim-easytags'
+    NeoBundle 'ludovicchabant/vim-gutentags'
     NeoBundle 'xolox/vim-misc'
 endif
 

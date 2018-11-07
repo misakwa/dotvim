@@ -123,18 +123,7 @@ let g:SuperTabContextDefaultCompletionType = '<c-x><c-o>'
 let g:SuperTabContextDiscoverDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-u>"]
 
 set tags=./.tags,./tags,./.vimtags,tags,vimtags
-let g:easytags_async = 1
-let g:easytags_python_enabled = 1
-let g:easytags_dynamic_files = 2
-" let g:easytags_python_languages = {
-"         \   'php': {
-"         \       'cmd': g:easytags_cmd,
-"         \       'args': []
-"         \
-"         \
-"         \
-"         \   }
-" }
+let g:gutentags_ctags_tagfile = '.tags'
 
 let g:arline_powerline_fonts = 0
 let g:airline#extensions#tmuxline#enabled = 0
@@ -197,7 +186,8 @@ set statusline+=%#identifier#
 set statusline+=%m
 set statusline+=%*
 
-set statusline+=%{fugitive#statusline()}
+"Lazy load fugitive statusline if plugin installed
+set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
 
 "display a warning if &et is wrong, or we have mixed-indenting
 set statusline+=%#error#
@@ -209,7 +199,9 @@ set statusline+=%{StatuslineTrailingSpaceWarning()}
 set statusline+=%{StatuslineLongLineWarning()}
 
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+
+"Lazy load SyntasticStatusLine if plugin installed
+set statusline+=%{exists('g:loaded_syntastic_plugin')?SyntasticStatuslineFlag():''}
 set statusline+=%*
 
 "display a warning if &paste is set
@@ -381,6 +373,7 @@ nnoremap <f4> :GundoToggle<cr>
 
 let g:gundo_width = 60
 let g:gundo_preview_height = 100
+let g:gundo_prefer_python3 = 1
 "let g:gundo_right = 1
 "let g:gundo_preview_bottom = 1
 "let g:gundo_preview_statusline = 1
