@@ -1,4 +1,5 @@
 plugs
+undofiles
 
 # symlinks from vim gocode plugin
 ftplugin/go/gocomplete.vim
