@@ -12,6 +12,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-eunuch'
 Plug 'w0rp/ale'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'Shougo/denite.nvim'
 
 " File browsing
 Plug 'kien/ctrlp.vim'
@@ -50,9 +51,8 @@ Plug 'vim-scripts/delimitMate.vim'
 Plug 'zhaocai/GoldenView.Vim'
 
 if executable('ctags')
+    Plug 'ludovicchabant/vim-gutentags'
     Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-    Plug 'xolox/vim-easytags'
-    Plug 'xolox/vim-misc'
 endif
 
 

@@ -130,18 +130,7 @@ if has("autocmd") && exists("+omnifunc")
 endif
 
 set tags=./.tags,./tags,./.vimtags,tags,vimtags
-let g:easytags_async = 1
-let g:easytags_python_enabled = 1
-let g:easytags_dynamic_files = 2
-" let g:easytags_python_languages = {
-"         \   'php': {
-"         \       'cmd': g:easytags_cmd,
-"         \       'args': []
-"         \
-"         \
-"         \
-"         \   }
-" }
+let g:gutentags_ctags_tagfile='.tags'
 
 let g:arline_powerline_fonts=0
 let g:airline#extensions#tmuxline#enabled=0
@@ -588,6 +577,7 @@ let g:ctrlp_use_caching = 1
 let g:ack_use_dispatch = 1
 
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
 let g:airline#extensions#ale#enabled=1
 let g:indent_guides_enable_on_vim_startup = 1
 
