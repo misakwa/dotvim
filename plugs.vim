@@ -42,13 +42,12 @@ Plug 'mileszs/ack.vim', { 'on': 'Ack' }
 " Auto-completion
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'ervandew/supertab'
 "Plug 'joonty/vdebug.git'
 
 Plug 'vim-scripts/IndexedSearch'
-Plug 'vim-scripts/delimitMate.vim'
-"Plug 'roman/golden-ratio'
+Plug 'Raimondi/delimitMate'
 Plug 'zhaocai/GoldenView.Vim'
+Plug 'valloric/youcompleteme', {'do': 'TERM=xterm ./install --all', 'frozen': 1}
 
 if executable('ctags')
     Plug 'ludovicchabant/vim-gutentags'

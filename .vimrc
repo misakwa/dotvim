@@ -109,25 +109,7 @@ set ttyfast
 "load ftplugins and indent files
 filetype plugin indent on
 
-" Supertab Completion
-set pumheight=25
-let g:SuperTabContextDefaultCompletionType = "<c-p>"
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabCompletionContexts = ["s:ContextText", "s:ContextDiscover"]
-let g:SuperTabContextTextOmniPrecedence = ["&omnifunc", "&completefunc"]
-let g:SuperTabContextDiscoverDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-u>"]
-let g:SuperTabClosePreviewOnPopupClose = 1
-
-"
-" Omni Completion
-if has("autocmd") && exists("+omnifunc")
-    autocmd filetype *
-    \   if &omnifunc == '' |
-    \       setlocal omnifunc=syntaxcomplete#Complete |
-    \   endif |
-    \   call SuperTabChain(&omnifunc, "<c-p>") |
-    \   call SuperTabSetDefaultCompletionType("<c-x><c-u>") |
-endif
+" YouCompleteMe
 
 set tags=./.tags,./tags,./.vimtags,tags,vimtags
 let g:gutentags_ctags_tagfile='.tags'
@@ -409,8 +391,12 @@ if has('gui_macvim')
     set transparency=5      " Make the window slightly transparent
 endif
 
-" Fixup Ultisnips behaviour
-inoremap <C-X><C-K> <C-X><C-K>
+" Ultisnips behaviour
+" inoremap <C-X><C-K> <C-X><C-K> " Not required since using ycm
+
+let g:UltiSnipsExpandTrigger = '<C-j>'
+let g:UltiSnipsJumpForwardTrigger = '<C-j>'
+let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
 "map Q to something useful
 noremap Q gq
@@ -579,6 +565,7 @@ let g:ack_use_dispatch = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 let g:airline#extensions#ale#enabled=1
+
 let g:indent_guides_enable_on_vim_startup = 1
 
 set hidden
