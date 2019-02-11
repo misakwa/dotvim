@@ -16,8 +16,8 @@ Plug 'Shougo/denite.nvim'
 
 " File browsing
 Plug 'kien/ctrlp.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'mbbill/undotree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 
 " Status line
 Plug 'vim-airline/vim-airline'
