@@ -10,8 +10,9 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-eunuch'
-Plug 'w0rp/ale'
+Plug 'terryma/vim-multiple-cursors'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'w0rp/ale'
 Plug 'Shougo/denite.nvim'
 
 " File browsing

@@ -1,5 +1,6 @@
 plugs
 undofiles
+.netrwhist
 
 # symlinks from vim gocode plugin
 ftplugin/go/gocomplete.vim
