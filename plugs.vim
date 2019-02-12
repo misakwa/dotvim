@@ -57,21 +57,23 @@ endif
 
 
 " Syntax Plugins
-Plug 'vim-scripts/matchit.zip', {'rtp': 'matchit.zip'}
-Plug 'mattn/emmet-vim', { 'for': ['tpl', 'html','php','phtml','xml','xsl','xslt','xsd','css','sass','scss','less','mustache'] }
-" Plug 'gregsexton/MatchTag', { 'for': ['html', 'xml', 'xsl', 'xslt', 'xsd'] }
+" Plug 'vim-scripts/matchit.zip', {'rtp': 'matchit.zip'}
 Plug 'solarnz/thrift.vim', { 'for': ['thrift'] }
 Plug 'groenewege/vim-less', { 'for': ['less', 'css'] }
 Plug 'derekwyatt/vim-scala', { 'for': ['scala', 'java'] }
 Plug 'mikelue/vim-maven-plugin', { 'for': ['scala', 'java'] }
 Plug 'nvie/vim-flake8', { 'for': ['python'] }
 Plug 'jmcantrell/vim-virtualenv', { 'for': ['python'] }
+Plug 'mattn/emmet-vim', { 'for': ['tpl', 'html','php','phtml','xml','xsl','xslt','xsd','css','sass','scss','less','mustache'] }
+Plug 'gregsexton/MatchTag', { 'for': ['html', 'xml', 'xsl', 'xslt', 'xsd', 'jsx'] }
 Plug 'tpope/vim-ragtag', { 'for': ['html','xml','xsl','xslt','xsd', 'mustache'] }
 Plug 'tpope/vim-markdown', { 'for': ['markdown'] }
 Plug 'vim-ruby/vim-ruby', { 'for': ['ruby'] }
 Plug 'tpope/vim-rails', { 'for': ['ruby'] }
 Plug 'kchmck/vim-coffee-script', { 'for': ['coffee'] }
 Plug 'rodjek/vim-puppet', { 'for': ['puppet'] }
+
+" Haskell syntax files
 Plug 'bitc/vim-hdevtools', { 'for': ['haskell'] }
 Plug 'eagletmt/ghcmod-vim', { 'for': ['haskell'] }
 Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell'] }
@@ -79,13 +81,20 @@ Plug 'enomsg/vim-haskellConcealPlus', { 'for': ['haskell'] }
 Plug 'eagletmt/ghcmod-vim', { 'for': ['haskell'] }
 Plug 'eagletmt/neco-ghc', { 'for': ['haskell'] }
 Plug 'Twinside/vim-hoogle', { 'for': ['haskell'] }
+
+" golang syntax files
 Plug 'fatih/vim-go', { 'for': ['go'], 'do': ':GoInstallBinaries' }
 Plug 'nsf/gocode', { 'do': './vim/symlink.sh', 'for': 'go', 'rtp': 'vim' }
+
+" rust syntax files
 Plug 'rust-lang/rust.vim', { 'for': ['rust', 'rs'] }
 Plug 'racer-rust/vim-racer', { 'for': ['rust', 'rs'] }
-Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx'] }
-Plug 'isruslan/vim-es6', { 'for': ['javascript', 'es6'] }
-Plug 'leafgarland/typescript-vim', { 'for': ['javascript', 'typescript', 'es6']}
+
+" javascript syntax files
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'typescript', 'es6', 'jsx', 'ts', 'js']}
+Plug 'leafgarland/typescript-vim', { 'for': ['javascript', 'typescript', 'es6', 'ts', 'js', 'jsx']}
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx', 'js', 'ts', 'es6'] }
+Plug 'isruslan/vim-es6', { 'for': ['javascript', 'es6', 'ts', 'js'] }
 
 " erlang syntax files
 Plug 'vim-erlang/vim-erlang-runtime', { 'for': ['erlang', 'erl', 'elixir', 'ex', 'exs', 'eex'] }
@@ -94,9 +103,11 @@ Plug 'vim-erlang/vim-erlang-omnicomplete', { 'for': ['erlang', 'erl', 'elixir', 
 Plug 'vim-erlang/vim-erlang-tags', { 'for': ['erlang', 'erl', 'elixir', 'ex', 'exs', 'eex'] }
 Plug 'elixir-editors/vim-elixir', { 'for': ['erlang', 'erl', 'elixir', 'ex', 'exs', 'eex'] }
 Plug 'slashmili/alchemist.vim', { 'for': ['erlang', 'erl', 'elixir', 'ex', 'exs', 'eex'] }
+
+" VueJS Syntax
 Plug 'posva/vim-vue', { 'for': ['vue'] }
 
 " jinja2 syntax
-Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['jinja', 'jinja2', 'j2'] }
+Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['jinja', 'jinja2', 'j2', 'html', 'xml', 'phtml', 'mustache'] }
 
 call plug#end()
