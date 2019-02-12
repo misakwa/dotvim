@@ -398,6 +398,8 @@ let g:UltiSnipsExpandTrigger = '<C-j>'
 let g:UltiSnipsJumpForwardTrigger = '<C-j>'
 let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
 
+let g:ycm_autoclose_preview_window_after_insertion = 1
+
 "map Q to something useful
 noremap Q gq
 
