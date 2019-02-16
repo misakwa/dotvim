@@ -393,21 +393,26 @@ endif
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
-" TODO: Set this to empty and use supertab?
-let g:ycm_key_list_select_completion = ['<TAB>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<S-TAB>', '<Up>']
-" TODO: Trigger this from supertab or set it to something else to make it
-" easier to trigger from supertab
-let g:ycm_key_invoke_completion = '<C-Space>'
 let g:ycm_filepath_completion_use_working_dir = 1
 let g:ycm_goto_buffer_command = 'new-or-existing-tab'
+" Make ycm play nice with supertab
+let g:ycm_key_invoke_completion = '<C-Space>'
 let g:ycm_auto_trigger = 1
+let g:ycm_key_list_select_completion = []
+let g:ycm_key_list_previous_completion = []
+" eo: Make ycm play nice with supertab
 
 " Ultisnips behaviour
-" inoremap <C-X><C-K> <C-X><C-K> " Not required since using ycm
-let g:UltiSnipsExpandTrigger = '<C-j>'
-let g:UltiSnipsJumpForwardTrigger = '<C-j>'
-let g:UltiSnipsJumpBackwardTrigger = '<C-k>'
+inoremap <C-X><C-K> <C-X><C-K>
+
+"Supertab
+set pumheight=25
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabCompletionContexts = ["s:ContextText", "s:ContextDiscover"]
+let g:SuperTabContextTextOmniPrecedence = ["&omnifunc", "&completefunc"]
+let g:SuperTabContextDiscoverDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-u>"]
+let g:SuperTabClosePreviewOnPopupClose = 1
+let g:SuperTabRetainCompletionDuration = 'completion'
 
 "map Q to something useful
 noremap Q gq

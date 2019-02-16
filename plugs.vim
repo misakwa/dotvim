@@ -49,6 +49,7 @@ Plug 'vim-scripts/IndexedSearch'
 Plug 'Raimondi/delimitMate'
 Plug 'zhaocai/GoldenView.Vim'
 Plug 'valloric/youcompleteme', {'do': 'TERM=xterm ./install --all', 'frozen': 1}
+Plug 'ervandew/supertab'
 
 if executable('ctags')
     Plug 'ludovicchabant/vim-gutentags'
