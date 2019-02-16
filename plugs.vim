@@ -10,7 +10,7 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-eunuch'
-Plug 'terryma/vim-multiple-cursors'
+Plug 'osyo-manga/vim-over', { 'on': 'OverCommandLine' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'w0rp/ale'
 Plug 'Shougo/denite.nvim'
