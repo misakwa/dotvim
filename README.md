@@ -10,7 +10,9 @@ Backup your .vim and .vimrc settings and clone repo to ~/.vim
 $ git clone git@github.com:misakwa/dotvim.git ~/.vim
 ```
 
-Install exuberant-ctags ( Depends on your OS ) - easy to find some information on google
+Install [Universal Ctags](https://github.com/universal-ctags/ctags)
+
+* [Mac Homebrew install instructions](https://github.com/universal-ctags/homebrew-universal-ctags)
 
 Run the bootstrap script.
 
@@ -20,4 +22,6 @@ $ cd ~/.vim
 $ ./bootstrap.sh
 ```
 
-You'll be prompted to install the plugins after firing up vim
+Run :PlugInstall after firing up vim to install all plugins.
+
+Follow instructions [YouCompleteMe Instructions](https://github.com/Valloric/YouCompleteMe#installation) to install automatic completion since it fails automatic installation.

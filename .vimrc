@@ -35,7 +35,7 @@ endif
 
 "undo settings
 if has("persistent_undo")
-    set undodir=~/.vim/.undofiles
+    set undodir=$HOME/.undofiles
     set undofile
 endif
 
@@ -171,7 +171,8 @@ set statusline+=%#identifier#
 set statusline+=%m
 set statusline+=%*
 
-set statusline+=%{fugitive#statusline()}
+"Lazy load fugitive statusline if plugin installed
+set statusline+=%{exists('g:loaded_fugitive')?fugitive#statusline():''}
 
 "display a warning if &et is wrong, or we have mixed-indenting
 set statusline+=%#error#
@@ -308,11 +309,10 @@ function! s:Median(nums)
 endfunction
 
 "tagbar settings
+nnoremap <f3> :TagbarToggle<cr>
 let g:tagbar_autoclose = 1
 let g:tagbar_width = 36
 let g:tagbar_autofocus = 1
-"let g:tagbar_compact = 1
-
 
 "snipmate settings
 let g:snips_author = ""
@@ -346,11 +346,10 @@ endif
 
 "explorer mappings
 nnoremap <f2> :NERDTreeToggle<cr>:NERDTreeMirror<cr>
-nnoremap <f3> :TagbarToggle<cr>
 nnoremap <f4> :UndotreeToggle<cr>
 
 let g:undotree_SplitWidth = 60
-let g:undotree_DiffpanelHeight = 80
+let g:undotree_DiffpanelHeight = 100
 let g:undotree_SetFocusWhenToggle=1
 let g:undotree_WindowLayout=1
 
