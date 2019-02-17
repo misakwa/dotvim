@@ -16,6 +16,7 @@ Plug 'osyo-manga/vim-over', { 'on': 'OverCommandLine' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'w0rp/ale'
 Plug 'Shougo/denite.nvim'
+Plug 'easymotion/vim-easymotion'
 
 " File browsing
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
