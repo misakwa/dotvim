@@ -562,8 +562,6 @@ nnoremap <silent> <leader>/ :Denite grep<cr>
 if executable('ag')
     call denite#custom#var('file/rec', 'command',
         \ ['ag', '--nogroup', '--nocolor', '-f', '--smart-case', '-g', ''])
-    call denite#custom#var('file_rec', 'command',
-        \ ['ag', '--nogroup', '--nocolor', '-f', '--smart-case', '-g', ''])
 
     call denite#custom#var('grep', 'command', ['ag'])
     call denite#custom#var('grep', 'recursive_opts', [])
@@ -573,5 +571,19 @@ if executable('ag')
     call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--smart-case', '-f', '--nocolor'])
 endif
 " eo: Denite everything
+
+" Denite menus
+let s:menus = {}
+let s:menus.edit = { 'description': 'Find...' }
+let s:menus.edit.command_candidates = [
+        \ ['Find > File', 'Denite file/rec'],
+        \ ['Find > Buffer', 'Denite buffer'],
+        \ ['Find > Text', 'Denite grep'],
+    \]
+
+call denite#custom#var('menu', 'menus', s:menus)
+nnoremap <silent> <leader>m :Denite menu<cr>
+
+" eo: Denite menus
 
 set hidden
