@@ -35,7 +35,7 @@ endif
 
 "undo settings
 if has("persistent_undo")
-    set undodir=~/.vim/undofiles
+    set undodir=~/.vim/.undofiles
     set undofile
 endif
 
@@ -74,9 +74,6 @@ set expandtab
 set autoindent
 set smartindent
 set smarttab
-
-"Ruby indent settings
-"autocmd Filetype ruby setlocal sts=2 sw=2 expandtab
 
 "folding settings
 set foldmethod=syntax   "fold based on indent
@@ -520,7 +517,7 @@ nnoremap <silent> <leader>gr :Gread<CR>:GitGutter<CR>
 nnoremap <silent> <leader>gg :GitGutterToggle<CR>
 "http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
 "hacks from above (the url, not jesus) to delete fugitive buffers when we
-"leave them - otherwise the buffer list gets poluted
+"leave them - otherwise the buffer list gets polluted
 "
 "add a mapping on .. to view parent tree
 autocmd BufReadPost fugitive://* set bufhidden=delete
@@ -545,36 +542,13 @@ augroup END
 set nobackup
 set noswapfile
 
-" CtrlP
-let g:ctrp_cmd = 'CtrlPMixed'
-let g:ctrlp_max_files = 0
-let g:ctrlp_max_height = 40
-let g:ctrlp_lazy_update = 1
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_switch_buffer = 'ET'
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_custom_ignore = {
-\ 'dir':  '\v[\/]\.(git|hg|svn|tox)$',
-\ 'file': '\v\.(exe|so|dll|pyc|DS_Store)$',
-\ }
-
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
+  set grepprg=ag\ --nogroup\ --nocolor\ --skip-vcs-ignores\ --follow\ --smart-case\ --nocolor
 
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache but we're still going to
-  " cache
-  let g:ctrlp_max_files = 0
   let g:ackprg = 'ag --smart-case --nogroup --nocolor --column --skip-vcs-ignores --follow'
 endif
-
-let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_use_caching = 1
 
 let g:ack_use_dispatch = 1
 
@@ -586,5 +560,16 @@ let g:indent_guides_enable_on_vim_startup = 1
 
 let g:EditorConfig_core_mode = 'external_command'
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
+
+" Denite everything
+nnoremap <silent> <C-p> :Denite file/rec<cr>
+if executable('ag')
+    call denite#custom#var('file/rec', 'command',
+        \ ['ag', '--nogroup', '--nocolor', '-f', '--smart-case', '-g', ''])
+    call denite#custom#var('file_rec', 'command',
+        \ ['ag', '--nogroup', '--nocolor', '-f', '--smart-case', '-g', ''])
+endif
+" eo: Denite everything
 
 set hidden

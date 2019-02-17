@@ -16,7 +16,6 @@ Plug 'w0rp/ale'
 Plug 'Shougo/denite.nvim'
 
 " File browsing
-Plug 'kien/ctrlp.vim'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 
