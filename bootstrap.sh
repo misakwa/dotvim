@@ -1,6 +1,4 @@
 #!/usr/bin/env sh
-# Update submodule to retrieve neobundle
-git submodule update --init --recursive
 
 # Backup .vimrc
 if [ -f $HOME/.vimrc ]; then
@@ -11,4 +9,4 @@ fi
 
 # Link .vimrc
 rm -f $HOME/.vimrc
-ln -s $HOME/.vim/vimrc $HOME/.vimrc
+ln -s $HOME/.vim/.vimrc $HOME/.vimrc

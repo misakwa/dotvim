@@ -1,1 +1,8 @@
-bundle
+plugs
+undofiles
+.undofiles
+.netrwhist
+
+# symlinks from vim gocode plugin
+ftplugin/go/gocomplete.vim
+autoload/gocomplete.vim

@@ -22,4 +22,6 @@ $ cd ~/.vim
 $ ./bootstrap.sh
 ```
 
-You'll be prompted to install the plugins after firing up vim
+Run :PlugInstall after firing up vim to install all plugins.
+
+Follow instructions [YouCompleteMe Instructions](https://github.com/Valloric/YouCompleteMe#installation) to install automatic completion since it fails automatic installation.

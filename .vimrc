@@ -5,20 +5,9 @@ if !1 | finish | endif
 set nocompatible
 
 if has('vim_starting')
-    set runtimepath+=~/.vim/bundle/neobundle.vim/
-    call neobundle#begin(expand('~/.vim/bundle'))
     " vim plugins
-    source ~/.vim/neobundles.vim
-    call neobundle#end()
-    " Prompt to instal new plugins
-    NeoBundleCheck
+    source ~/.vim/plugs.vim
 endif
-
-" allow backspacing over everything in insert mode
-set backspace=indent,eol,start
-
-"store lots of :cmdline history
-set history=1000
 
 set showcmd     "show incomplete cmds down the bottom
 set showmode    "show current mode down the bottom
@@ -26,13 +15,12 @@ set showmode    "show current mode down the bottom
 set number      "show line numbers
 
 "display tabs and trailing spaces
-"set list
+" set list
 set listchars=tab:▸\ ,eol:¬,trail:.,nbsp:.
 
 set ignorecase  " Case insensitive search
-
-set incsearch   "find the next match as we type the search
-set hlsearch    "hilight searches by default
+set smartcase   " Guess casing if the keyword contains uppercase characters
+set hls
 
 set wrap        "dont wrap lines
 set linebreak   "wrap lines at convenient points
@@ -45,11 +33,13 @@ else
   set clipboard=unnamed
 endif
 
-if v:version >= 703
-    "undo settings
-    set undodir=~/.vim/undofiles
+"undo settings
+if has("persistent_undo")
+    set undodir=$HOME/.undofiles
     set undofile
+endif
 
+if v:version >= 703
     set colorcolumn=+1 "mark the ideal max text width
 endif
 
@@ -70,8 +60,6 @@ let maplocalleader = ","
 let g:maplocalleader = ","
 set cmdheight=2
 
-set encoding=utf-8
-
 " Quick Horizontal splits
 nnoremap _ :sp<cr>
 " | : Quick vertical splits
@@ -84,9 +72,8 @@ set softtabstop=4
 set shiftround
 set expandtab
 set autoindent
-
-"Ruby indent settings
-"autocmd Filetype ruby setlocal sts=2 sw=2 expandtab
+set smartindent
+set smarttab
 
 "folding settings
 set foldmethod=syntax   "fold based on indent
@@ -94,7 +81,6 @@ set foldnestmax=3       "deepest fold is 3 levels
 set nofoldenable        "dont fold by default
 
 set wildmode=list:longest   "make cmdline tab completion similar to bash
-set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
 
 set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
 "set wildignore+=doc              " should not break helptags
@@ -114,30 +100,29 @@ set scrolloff=8
 set sidescrolloff=7
 set sidescroll=1
 
+set lazyredraw
+set ttyfast
+
 "load ftplugins and indent files
 filetype plugin indent on
 
-" Supertab Completion
-let g:SuperTabSetDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = '<c-x><c-o>'
-let g:SuperTabContextDiscoverDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-u>"]
-
 set tags=./.tags,./tags,./.vimtags,tags,vimtags
-let g:gutentags_ctags_tagfile = '.tags'
+let g:gutentags_ctags_tagfile='.tags'
 
-let g:arline_powerline_fonts = 0
-let g:airline#extensions#tmuxline#enabled = 0
+let g:arline_powerline_fonts=0
+let g:airline#extensions#tmuxline#enabled=0
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
 endif
 
-let g:airline_left_sep = '»'
-let g:airline_right_sep = '«'
-let g:airline_symbols.branch = '⎇'
+let g:airline_left_sep='»'
+let g:airline_right_sep='«'
+let g:airline_symbols.branch='⎇'
+let g:airline_theme='dark'
 
-let g:tmuxline_theme = 'powerline'
-let g:tmuxline_powerline_separators = 0
+let g:tmuxline_theme='airline'
+" let g:tmuxline_powerline_separators=0
 let g:tmuxline_separators = {
 \ 'left': '',
 \ 'left_alt': '»',
@@ -198,12 +183,6 @@ set statusline+=%{StatuslineTrailingSpaceWarning()}
 
 set statusline+=%{StatuslineLongLineWarning()}
 
-set statusline+=%#warningmsg#
-
-"Lazy load SyntasticStatusLine if plugin installed
-set statusline+=%{exists('g:loaded_syntastic_plugin')?SyntasticStatuslineFlag():''}
-set statusline+=%*
-
 "display a warning if &paste is set
 set statusline+=%#error#
 set statusline+=%{&paste?'[paste]':''}
@@ -214,7 +193,6 @@ set statusline+=%{StatuslineCurrentHighlight()}\ \ "current highlight
 set statusline+=%c,     "cursor column
 set statusline+=%l/%L   "cursor line/total lines
 set statusline+=\ %P    "percent through file
-set laststatus=2
 
 "recalculate the trailing whitespace warning when idle, and after saving
 autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
@@ -331,11 +309,10 @@ function! s:Median(nums)
 endfunction
 
 "tagbar settings
+nnoremap <f3> :TagbarToggle<cr>
 let g:tagbar_autoclose = 1
 let g:tagbar_width = 36
 let g:tagbar_autofocus = 1
-"let g:tagbar_compact = 1
-
 
 "snipmate settings
 let g:snips_author = ""
@@ -349,6 +326,7 @@ let g:NERDTreeChDirMode=1
 let g:NERDTreeRespectWildIgnore=1
 let g:NERDTreeCascadeOpenSingleChildDir=1
 let g:NERDTreeAutoDeleteBuffer=1
+let g:NETDTreeIgnore=['__pycache__', '.egg-info[[dir]]']
 
 " Tabular
 if exists(':Tabularize')
@@ -368,19 +346,18 @@ endif
 
 "explorer mappings
 nnoremap <f2> :NERDTreeToggle<cr>:NERDTreeMirror<cr>
-nnoremap <f3> :TagbarToggle<cr>
-nnoremap <f4> :GundoToggle<cr>
+nnoremap <f4> :UndotreeToggle<cr>
 
-let g:gundo_width = 60
-let g:gundo_preview_height = 100
-let g:gundo_prefer_python3 = 1
-"let g:gundo_right = 1
-"let g:gundo_preview_bottom = 1
-"let g:gundo_preview_statusline = 1
+let g:undotree_SplitWidth = 60
+let g:undotree_DiffpanelHeight = 100
+let g:undotree_SetFocusWhenToggle=1
+let g:undotree_WindowLayout=1
 
 nnoremap j gj
 nnoremap k gk
 nnoremap <leader>l :set list!<cr>
+nnoremap <space> za
+vnoremap <space> za
 
 cmap w!! w !sudo tee % >/dev/null
 
@@ -398,7 +375,6 @@ nmap <silent> <Leader>vm <Plug>GoldenViewSwitchWithLargest
 nmap <silent> <Leader>vn <Plug>GoldenViewNext
 nmap <silent> <Leader>vp <Plug>GoldenViewPrevious
 
-
 if $ITERM_PROFILE =~ "Presentation"
    set background=light
 else
@@ -408,9 +384,31 @@ endif
 if has('gui_macvim')
     set transparency=5      " Make the window slightly transparent
 endif
-"make <c-l> clear the highlight as well as redraw
-nnoremap <C-L> :nohls<CR><C-L>
-inoremap <C-L> <C-O>:nohls<CR>
+
+" YouCompleteMe
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_collect_identifiers_from_tags_files = 1
+let g:ycm_filepath_completion_use_working_dir = 1
+let g:ycm_goto_buffer_command = 'new-or-existing-tab'
+" Make ycm play nice with supertab
+let g:ycm_key_invoke_completion = '<C-Space>'
+let g:ycm_auto_trigger = 1
+let g:ycm_key_list_select_completion = []
+let g:ycm_key_list_previous_completion = []
+" eo: Make ycm play nice with supertab
+
+" Ultisnips behaviour
+inoremap <C-X><C-K> <C-X><C-K>
+
+"Supertab
+set pumheight=25
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabCompletionContexts = ["s:ContextText", "s:ContextDiscover"]
+let g:SuperTabContextTextOmniPrecedence = ["&omnifunc", "&completefunc"]
+let g:SuperTabContextDiscoverDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-u>"]
+let g:SuperTabClosePreviewOnPopupClose = 1
+let g:SuperTabRetainCompletionDuration = 'completion'
 
 "map Q to something useful
 noremap Q gq
@@ -442,7 +440,7 @@ function! SetCursorPosition()
 endfunction
 
 "Hightlight repeated lines
-function! HighlightRepeats() range
+function! s:HighlightRepeats() range
   let lineCounts = {}
   let lineNum = a:firstline
   while lineNum <= a:lastline
@@ -459,11 +457,11 @@ function! HighlightRepeats() range
     endif
   endfor
 endfunction
-command! -range=% HighlightRepeats <line1>,<line2>call HighlightRepeats()
+command! -range=% HighlightRepeats <line1>,<line2>call <SID>HighlightRepeats()
 
 " Cleanup whitespaces and preserve state
 " http://vimcasts.org/episodes/tidying-whitespace/
-function! <SID>StripTrailingWhitespaces()
+function! s:StripTrailingWhitespaces()
     " Preparation: save last search, and cursor position.
     let _s=@/
     let l = line(".")
@@ -477,28 +475,28 @@ endfunction
 nnoremap <silent> <leader>$ :call <SID>StripTrailingWhitespaces()<CR>
 
 " Like windo but restore the current window.
-function! WinDo(command)
+function! s:WinDo(command)
   let currwin=winnr()
   execute 'windo ' . a:command
   execute currwin . 'wincmd w'
 endfunction
-com! -nargs=+ -complete=command Windo call WinDo(<q-args>)
+com! -nargs=+ -complete=command Windo call <SID>WinDo(<q-args>)
 
 " Like bufdo but restore the current buffer.
-function! BufDo(command)
+function! s:BufDo(command)
   let currBuff=bufnr("%")
   execute 'bufdo ' . a:command
   execute 'buffer ' . currBuff
 endfunction
-com! -nargs=+ -complete=command Bufdo call BufDo(<q-args>)
+com! -nargs=+ -complete=command Bufdo call <SID>BufDo(<q-args>)
 
 " Like tabdo but restore the current tab.
-function! TabDo(command)
+function! s:TabDo(command)
   let currTab=tabpagenr()
   execute 'tabdo ' . a:command
   execute 'tabn ' . currTab
 endfunction
-com! -nargs=+ -complete=command Tabdo call TabDo(<q-args>)
+com! -nargs=+ -complete=command Tabdo call <SID>TabDo(<q-args>)
 
 "spell check when writing commit logs
 autocmd filetype svn,*commit* setlocal spell
@@ -518,7 +516,7 @@ nnoremap <silent> <leader>gr :Gread<CR>:GitGutter<CR>
 nnoremap <silent> <leader>gg :GitGutterToggle<CR>
 "http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
 "hacks from above (the url, not jesus) to delete fugitive buffers when we
-"leave them - otherwise the buffer list gets poluted
+"leave them - otherwise the buffer list gets polluted
 "
 "add a mapping on .. to view parent tree
 autocmd BufReadPost fugitive://* set bufhidden=delete
@@ -543,44 +541,37 @@ augroup END
 set nobackup
 set noswapfile
 
-" CtrlP
-let g:ctrp_cmd = 'CtrlPMixed'
-let g:ctrlp_max_height = 40
-let g:ctrlp_lazy_update = 350
-let g:ctrlp_working_path_mode = 'ra'
-let g:ctrlp_custom_ignore = {
-\ 'dir':  '\v[\/]\.(git|hg|svn|tox)$',
-\ 'file': '\v\.(exe|so|dll|pyc|DS_Store)$',
-\ }
-
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache but we're still going to
-  " cache
-  let g:ctrlp_max_files = 0
-  let g:ackprg = 'ag --smart-case --nogroup --nocolor --column --skip-vcs-ignores --follow'
+  set grepprg=ag\ --nogroup\ --nocolor\ --skip-vcs-ignores\ --follow\ --smart-case
 endif
 
-let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
-let g:ctrlp_clear_cache_on_exit = 0
-let g:ctrlp_use_caching = 1
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
+let g:airline#extensions#ale#enabled=1
 
-let g:ack_use_dispatch = 1
+let g:indent_guides_enable_on_vim_startup = 1
 
-" Omni Completion
-if has("autocmd") && exists("+omnifunc")
-    autocmd Filetype *
-    \	if &omnifunc == "" |
-    \		setlocal omnifunc=syntaxcomplete#Complete |
-    \	endif
+let g:EditorConfig_core_mode = 'external_command'
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
+" Denite everything
+nnoremap <silent> <C-p> :Denite file/rec<cr>
+nnoremap <silent> <leader>/ :Denite grep<cr>
+if executable('ag')
+    call denite#custom#var('file/rec', 'command',
+        \ ['ag', '--nogroup', '--nocolor', '-f', '--smart-case', '-g', ''])
+    call denite#custom#var('file_rec', 'command',
+        \ ['ag', '--nogroup', '--nocolor', '-f', '--smart-case', '-g', ''])
+
+    call denite#custom#var('grep', 'command', ['ag'])
+    call denite#custom#var('grep', 'recursive_opts', [])
+    call denite#custom#var('grep', 'pattern_opt', [])
+    call denite#custom#var('grep', 'separator', ['--'])
+    call denite#custom#var('grep', 'final_opts', [])
+    call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--smart-case', '-f', '--nocolor'])
 endif
+" eo: Denite everything
 
-" Configure browser for haskell_doc.vim
-let g:haddock_browser = "open"
-let g:haddock_browser_callformat = "%s %s"
+set hidden
