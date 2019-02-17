@@ -5,7 +5,9 @@ Plug 'tpope/vim-sensible'
 
 " Core Plugins
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-dispatch', {
+        \ 'on': ['Dispatch', 'Dispatch!', 'Start', 'Start!', 'Focus', 'Focus!', 'Make']
+    \}
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
