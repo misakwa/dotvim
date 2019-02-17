@@ -441,7 +441,7 @@ function! SetCursorPosition()
 endfunction
 
 "Hightlight repeated lines
-function! HighlightRepeats() range
+function! s:HighlightRepeats() range
   let lineCounts = {}
   let lineNum = a:firstline
   while lineNum <= a:lastline
@@ -458,11 +458,11 @@ function! HighlightRepeats() range
     endif
   endfor
 endfunction
-command! -range=% HighlightRepeats <line1>,<line2>call HighlightRepeats()
+command! -range=% HighlightRepeats <line1>,<line2>call <SID>HighlightRepeats()
 
 " Cleanup whitespaces and preserve state
 " http://vimcasts.org/episodes/tidying-whitespace/
-function! <SID>StripTrailingWhitespaces()
+function! s:StripTrailingWhitespaces()
     " Preparation: save last search, and cursor position.
     let _s=@/
     let l = line(".")
@@ -476,28 +476,28 @@ endfunction
 nnoremap <silent> <leader>$ :call <SID>StripTrailingWhitespaces()<CR>
 
 " Like windo but restore the current window.
-function! WinDo(command)
+function! s:WinDo(command)
   let currwin=winnr()
   execute 'windo ' . a:command
   execute currwin . 'wincmd w'
 endfunction
-com! -nargs=+ -complete=command Windo call WinDo(<q-args>)
+com! -nargs=+ -complete=command Windo call <SID>WinDo(<q-args>)
 
 " Like bufdo but restore the current buffer.
-function! BufDo(command)
+function! s:BufDo(command)
   let currBuff=bufnr("%")
   execute 'bufdo ' . a:command
   execute 'buffer ' . currBuff
 endfunction
-com! -nargs=+ -complete=command Bufdo call BufDo(<q-args>)
+com! -nargs=+ -complete=command Bufdo call <SID>BufDo(<q-args>)
 
 " Like tabdo but restore the current tab.
-function! TabDo(command)
+function! s:TabDo(command)
   let currTab=tabpagenr()
   execute 'tabdo ' . a:command
   execute 'tabn ' . currTab
 endfunction
-com! -nargs=+ -complete=command Tabdo call TabDo(<q-args>)
+com! -nargs=+ -complete=command Tabdo call <SID>TabDo(<q-args>)
 
 "spell check when writing commit logs
 autocmd filetype svn,*commit* setlocal spell
