@@ -39,12 +39,9 @@ Plug 'Yggdroot/indentLine'
 Plug 'godlygeek/csapprox'
 Plug 'altercation/vim-colors-solarized'
 
-Plug 'mileszs/ack.vim', { 'on': 'Ack' }
-
 " Auto-completion
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-"Plug 'joonty/vdebug.git'
 
 Plug 'vim-scripts/IndexedSearch'
 Plug 'Raimondi/delimitMate'

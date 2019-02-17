@@ -545,12 +545,8 @@ set noswapfile
 " The Silver Searcher
 if executable('ag')
   " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor\ --skip-vcs-ignores\ --follow\ --smart-case\ --nocolor
-
-  let g:ackprg = 'ag --smart-case --nogroup --nocolor --column --skip-vcs-ignores --follow'
+  set grepprg=ag\ --nogroup\ --nocolor\ --skip-vcs-ignores\ --follow\ --smart-case
 endif
-
-let g:ack_use_dispatch = 1
 
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
@@ -561,14 +557,21 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:EditorConfig_core_mode = 'external_command'
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
-
 " Denite everything
 nnoremap <silent> <C-p> :Denite file/rec<cr>
+nnoremap <silent> <leader>/ :Denite grep<cr>
 if executable('ag')
     call denite#custom#var('file/rec', 'command',
         \ ['ag', '--nogroup', '--nocolor', '-f', '--smart-case', '-g', ''])
     call denite#custom#var('file_rec', 'command',
         \ ['ag', '--nogroup', '--nocolor', '-f', '--smart-case', '-g', ''])
+
+    call denite#custom#var('grep', 'command', ['ag'])
+    call denite#custom#var('grep', 'recursive_opts', [])
+    call denite#custom#var('grep', 'pattern_opt', [])
+    call denite#custom#var('grep', 'separator', ['--'])
+    call denite#custom#var('grep', 'final_opts', [])
+    call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--smart-case', '-f', '--nocolor'])
 endif
 " eo: Denite everything
 
