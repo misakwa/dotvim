@@ -137,9 +137,6 @@ syntax on
 set mouse=a
 "set ttymouse=xterm2
 
-"tell the term has 256 colors
-set t_Co=256
-
 "hide buffers when not displayed
 set hidden
 
@@ -381,6 +378,8 @@ else
     set background=dark
 endif
 
+colorscheme solarized
+
 if has('gui_macvim')
     set transparency=5      " Make the window slightly transparent
 endif
@@ -525,10 +524,6 @@ autocmd BufReadPost fugitive://*
   \   nnoremap <buffer> .. :edit %:h<CR> |
   \ endif
 
-
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-colorscheme solarized
 
 "Show cursorline in active window only
 augroup CursorLine
