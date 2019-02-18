@@ -57,7 +57,7 @@ endif
 
 
 " Syntax Plugins
-" Plug 'vim-scripts/matchit.zip', {'rtp': 'matchit.zip'}
+Plug 'andymass/vim-matchup'
 Plug 'solarnz/thrift.vim', { 'for': ['thrift'] }
 Plug 'groenewege/vim-less', { 'for': ['less', 'css'] }
 Plug 'derekwyatt/vim-scala', { 'for': ['scala', 'java'] }
