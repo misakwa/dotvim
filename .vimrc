@@ -543,8 +543,6 @@ if executable('ag')
 endif
 
 let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 0
-let g:airline#extensions#ale#enabled=1
 
 let g:indent_guides_enable_on_vim_startup = 1
 
