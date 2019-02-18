@@ -110,7 +110,7 @@ set tags=./.tags,./tags,./.vimtags,tags,vimtags
 let g:gutentags_ctags_tagfile='.tags'
 
 let g:arline_powerline_fonts=0
-let g:airline#extensions#tmuxline#enabled=0
+let g:airline#extensions#tmuxline#enabled=1
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
