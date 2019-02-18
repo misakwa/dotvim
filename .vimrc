@@ -342,8 +342,8 @@ if exists(':Tabularize')
 endif
 
 "explorer mappings
-nnoremap <f2> :NERDTreeToggle<cr>:NERDTreeMirror<cr>
-nnoremap <f4> :UndotreeToggle<cr>
+nnoremap <silent> <f2> :NERDTreeToggle<cr>:NERDTreeMirror<cr>
+nnoremap <silent> <f4> :UndotreeToggle<cr>
 
 let g:undotree_SplitWidth = 60
 let g:undotree_DiffpanelHeight = 100
