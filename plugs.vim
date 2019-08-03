@@ -47,7 +47,7 @@ Plug 'honza/vim-snippets'
 Plug 'vim-scripts/IndexedSearch'
 Plug 'Raimondi/delimitMate'
 Plug 'zhaocai/GoldenView.Vim'
-Plug 'valloric/youcompleteme', {'do': 'TERM=xterm ./install --all', 'frozen': 1}
+Plug 'valloric/youcompleteme', {'do': 'TERM=xterm ./install.py --all --system-libclang', 'frozen': 1 }
 Plug 'ervandew/supertab'
 
 if executable('ctags')
@@ -83,7 +83,7 @@ Plug 'eagletmt/neco-ghc', { 'for': ['haskell'] }
 Plug 'Twinside/vim-hoogle', { 'for': ['haskell'] }
 
 " golang syntax files
-Plug 'fatih/vim-go', { 'for': ['go'], 'do': ':GoInstallBinaries' }
+Plug 'fatih/vim-go', { 'for': ['go'], 'do': ':GoUpdateBinaries' }
 Plug 'nsf/gocode', { 'do': './vim/symlink.sh', 'for': 'go', 'rtp': 'vim' }
 
 " rust syntax files
@@ -95,6 +95,7 @@ Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'typescript', 'es6', 'js
 Plug 'leafgarland/typescript-vim', { 'for': ['javascript', 'typescript', 'es6', 'ts', 'js', 'jsx']}
 Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx', 'js', 'ts', 'es6'] }
 Plug 'isruslan/vim-es6', { 'for': ['javascript', 'es6', 'ts', 'js'] }
+Plug 'google/vim-jsonnet', { 'for': ['jsonnet'] }
 
 " erlang syntax files
 Plug 'vim-erlang/vim-erlang-runtime', { 'for': ['erlang', 'erl', 'elixir', 'ex', 'exs', 'eex'] }
