@@ -16,6 +16,8 @@ Plug 'osyo-manga/vim-over', { 'on': 'OverCommandLine' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'w0rp/ale'
 Plug 'Shougo/denite.nvim'
+Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'roxma/nvim-yarp'
 Plug 'easymotion/vim-easymotion'
 
 " File browsing
