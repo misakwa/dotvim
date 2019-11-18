@@ -12,7 +12,6 @@ Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-eunuch'
-Plug 'osyo-manga/vim-over', { 'on': 'OverCommandLine' }
 Plug 'editorconfig/editorconfig-vim'
 Plug 'w0rp/ale'
 Plug 'roxma/vim-hug-neovim-rpc'
@@ -86,11 +85,9 @@ Plug 'Twinside/vim-hoogle', { 'for': ['haskell'] }
 
 " golang syntax files
 Plug 'fatih/vim-go', { 'for': ['go'], 'do': ':GoUpdateBinaries' }
-Plug 'nsf/gocode', { 'do': './vim/symlink.sh', 'for': 'go', 'rtp': 'vim' }
 
 " rust syntax files
 Plug 'rust-lang/rust.vim', { 'for': ['rust', 'rs'] }
-Plug 'racer-rust/vim-racer', { 'for': ['rust', 'rs'] }
 
 " javascript syntax files
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'typescript', 'es6', 'jsx', 'ts', 'js']}

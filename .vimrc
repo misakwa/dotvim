@@ -210,18 +210,27 @@ if has('gui_macvim')
     set transparency=5      " Make the window slightly transparent
 endif
 
-" YouCompleteMe
+" start: YouCompleteMe
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_filepath_completion_use_working_dir = 1
 let g:ycm_goto_buffer_command = 'new-or-existing-tab'
-" Make ycm play nice with supertab
+" start: Make ycm play nice with supertab
 let g:ycm_key_invoke_completion = '<C-Space>'
 let g:ycm_auto_trigger = 1
 let g:ycm_key_list_select_completion = []
 let g:ycm_key_list_previous_completion = []
 " eo: Make ycm play nice with supertab
+
+" language servers - lsp
+let g:ycm_language_server = []
+if executable('rls')
+    let g:ycm_language_server +=  [{'name': 'rust', 'cmdline': ['rls'], 'filetypes': ['rust', 'rs']}]
+endif
+" eo: language servers - lsp
+
+" eo: YouCompleteMe
 
 " Ultisnips behaviour
 inoremap <C-X><C-K> <C-X><C-K>
@@ -368,7 +377,13 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor\ --skip-vcs-ignores\ --follow\ --smart-case
 endif
 
+" ale
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_linters = {}
+
+if executable('gopls')
+    let g:ale_linters.go = ['gopls']
+endif
 
 let g:indent_guides_enable_on_vim_startup = 1
 
