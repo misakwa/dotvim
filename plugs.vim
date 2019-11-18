@@ -54,7 +54,7 @@ Plug 'ervandew/supertab'
 
 if executable('ctags')
     Plug 'ludovicchabant/vim-gutentags'
-    Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+    Plug 'liuchengxu/vista.vim', { 'on': 'Vista' }
 endif
 
 

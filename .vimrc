@@ -132,10 +132,10 @@ set mouse=a
 set hidden
 
 "tagbar settings
-nnoremap <f3> :TagbarToggle<cr>
-let g:tagbar_autoclose = 1
-let g:tagbar_width = 36
-let g:tagbar_autofocus = 1
+nnoremap <f3> :Vista!!<cr>
+let g:vista_sidebar_width = 36
+let g:vista_close_on_jump = 1
+let g:vista#renderer#enable_icon = 0
 
 "snipmate settings
 let g:snips_author = ""
