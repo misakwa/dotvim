@@ -375,34 +375,4 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:EditorConfig_core_mode = 'external_command'
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
-" Denite everything
-nnoremap <silent> <C-p> :Denite file/rec<cr>
-nnoremap <silent> <leader>/ :Denite grep<cr>
-if executable('ag')
-    call denite#custom#var('file/rec', 'command',
-        \ ['ag', '--nogroup', '--nocolor', '-f', '--smart-case', '-g', ''])
-
-    call denite#custom#var('grep', 'command', ['ag'])
-    call denite#custom#var('grep', 'recursive_opts', [])
-    call denite#custom#var('grep', 'pattern_opt', [])
-    call denite#custom#var('grep', 'separator', ['--'])
-    call denite#custom#var('grep', 'final_opts', [])
-    call denite#custom#var('grep', 'default_opts', ['--vimgrep', '--smart-case', '-f', '--nocolor'])
-endif
-" eo: Denite everything
-
-" Denite menus
-let s:menus = {}
-let s:menus.edit = { 'description': 'Find...' }
-let s:menus.edit.command_candidates = [
-        \ ['Find > File', 'Denite file/rec'],
-        \ ['Find > Buffer', 'Denite buffer'],
-        \ ['Find > Text', 'Denite grep'],
-    \]
-
-call denite#custom#var('menu', 'menus', s:menus)
-nnoremap <silent> <leader>m :Denite menu<cr>
-
-" eo: Denite menus
-
 set hidden
