@@ -110,4 +110,11 @@ Plug 'posva/vim-vue', { 'for': ['vue'] }
 " jinja2 syntax
 Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['jinja', 'jinja2', 'j2', 'html', 'xml', 'phtml', 'mustache'] }
 
+" Dart syntax + flutter
+Plug 'dart-lang/dart-vim-plugin', { 'for': ['dart'] }
+Plug 'misakwa/vim-ycm-dart'
+Plug 'thosakwe/vim-flutter', { 'for': ['dart'], 'on': ['FlutterRun', 'FlutterQuit', 'FlutterVsplit',
+    \ 'FlutterTab', 'FlutterHotReload', 'FlutterHotRestart', 'FlutterDevices', 'FlutterSplit',
+    \'FlutterEmilators', 'FlutterEmulatorLaunch'] }
+
 call plug#end()
