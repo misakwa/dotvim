@@ -4,6 +4,11 @@ if !1 | finish | endif
 " Improvement
 set nocompatible
 
+let mapleader=","
+let g:mapleader = ","
+let maplocalleader = ","
+let g:maplocalleader = ","
+
 if has('vim_starting')
     " vim plugins
     source ~/.vim/plugs.vim
@@ -54,16 +59,12 @@ else
   let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 endif
 
-let mapleader=","
-let g:mapleader = ","
-let maplocalleader = ","
-let g:maplocalleader = ","
 set cmdheight=2
 
 " Quick Horizontal splits
-nnoremap _ :sp<cr>
+nnoremap <silent> _ <Cmd>sp<cr>
 " | : Quick vertical splits
-nnoremap <bar> :vsp<cr>
+nnoremap <silent> <bar> <Cmd>vsp<cr>
 
 "default indent settings
 set tabstop=4
@@ -132,7 +133,7 @@ set mouse=a
 set hidden
 
 "tagbar settings
-nnoremap <f3> :Vista!!<cr>
+nnoremap <silent> <f3> <Cmd>Vista!!<cr>
 let g:vista_sidebar_width = 36
 let g:vista_close_on_jump = 1
 let g:vista#renderer#enable_icon = 0
@@ -153,44 +154,44 @@ let g:NETDTreeIgnore=['__pycache__', '.egg-info[[dir]]']
 
 " Tabular
 if exists(':Tabularize')
-    nmap <Leader>a& :Tabularize /&<CR>
-    vmap <Leader>a& :Tabularize /&<CR>
-    nmap <Leader>a= :Tabularize /=<CR>
-    vmap <Leader>a= :Tabularize /=<CR>
-    nmap <Leader>a: :Tabularize /:<CR>
-    vmap <Leader>a: :Tabularize /:<CR>
-    nmap <Leader>a:: :Tabularize /:\zs<CR>
-    vmap <Leader>a:: :Tabularize /:\zs<CR>
-    nmap <Leader>a, :Tabularize /,<CR>
-    vmap <Leader>a, :Tabularize /,<CR>
-    nmap <Leader>a<Bar> :Tabularize /<Bar><CR>
-    vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
+    nmap <silent> <buffer> <LocalLeader>a& <Cmd>Tabularize /&<CR>
+    vmap <silent> <buffer> <LocalLeader>a& <Cmd>Tabularize /&<CR>
+    nmap <silent> <buffer> <LocalLeader>a= <Cmd>Tabularize /=<CR>
+    vmap <silent> <buffer> <LocalLeader>a= <Cmd>Tabularize /=<CR>
+    nmap <silent> <buffer> <LocalLeader>a: <Cmd>Tabularize /:<CR>
+    vmap <silent> <buffer> <LocalLeader>a: <Cmd>Tabularize /:<CR>
+    nmap <silent> <buffer> <LocalLeader>a:: <Cmd>Tabularize /:\zs<CR>
+    vmap <silent> <buffer> <LocalLeader>a:: <Cmd>Tabularize /:\zs<CR>
+    nmap <silent> <buffer> <LocalLeader>a, <Cmd>Tabularize /,<CR>
+    vmap <silent> <buffer> <LocalLeader>a, <Cmd>Tabularize /,<CR>
+    nmap <silent> <buffer> <LocalLeader>a<Bar> <Cmd>Tabularize /<Bar><CR>
+    vmap <silent> <buffer> <LocalLeader>a<Bar> <Cmd>Tabularize /<Bar><CR>
 endif
 
-nnoremap <silent> <c-p> :Files<cr>
-nnoremap <silent> <c-f> :Rg<cr>
-nmap <Leader>/ :Ag<cr>
-nmap <Leader>/b :Buffers<cr>
-nmap <Leader>/c :Commits<cr>
-nmap <Leader>/bc :BCommits<cr>
-nmap <Leader>/h :History<cr>
+nnoremap <silent> <c-p> <Cmd>Rg<cr>
+nnoremap <silent> <c-f> <Cmd>Files<cr>
+nnoremap <silent> <Leader>/ <Cmd>Ag<cr>
+nnoremap <silent> <Leader>/b <Cmd>Buffers<cr>
+nnoremap <silent> <Leader>/c <Cmd>Commits<cr>
+nnoremap <silent> <Leader>/bc <Cmd>BCommits<cr>
+nnoremap <silent> <Leader>/h <Cmd>History<cr>
 
 "explorer mappings
-nnoremap <silent> <f2> :NERDTreeToggle<cr>:NERDTreeMirror<cr>
-nnoremap <silent> <f4> :UndotreeToggle<cr>
+nnoremap <silent> <f2> <Cmd>NERDTreeToggle<cr><Cmd>NERDTreeMirror<cr>
+nnoremap <silent> <f4> <Cmd>UndotreeToggle<cr>
 
 let g:undotree_SplitWidth = 60
 let g:undotree_DiffpanelHeight = 100
 let g:undotree_SetFocusWhenToggle=1
 let g:undotree_WindowLayout=1
 
-nnoremap j gj
-nnoremap k gk
-nnoremap <leader>l :set list!<cr>
-nnoremap <space> za
-vnoremap <space> za
+nnoremap <silent> <buffer> j gj
+nnoremap <silent> <buffer> k gk
+nnoremap <silent> <buffer> <leader>l <Cmd>set list!<cr>
+nnoremap <silent> <buffer> <space> za
+vnoremap <silent> <buffer> <space> za
 
-cmap w!! w !sudo tee % >/dev/null
+cmap <silent> w!! w !sudo tee % >/dev/null
 
 "dont load csapprox if we no gui support - silences an annoying warning
 if !has("gui_running")
@@ -243,7 +244,7 @@ endif
 " eo: YouCompleteMe
 
 " Ultisnips behaviour
-inoremap <C-X><C-K> <C-X><C-K>
+inoremap <silent> <buffer> <C-X><C-K> <C-X><C-K>
 
 "Supertab
 set pumheight=25
@@ -255,10 +256,10 @@ let g:SuperTabClosePreviewOnPopupClose = 1
 let g:SuperTabRetainCompletionDuration = 'completion'
 
 "map Q to something useful
-noremap Q gq
+noremap <silent> <buffer> Q gq
 
 "make Y consistent with C and D
-nnoremap Y y$
+nnoremap <silent> <buffer> Y y$
 
 "visual search mappings
 function! s:VSetSearch()
@@ -316,7 +317,7 @@ function! s:StripTrailingWhitespaces()
     let @/=_s
     call cursor(l, c)
 endfunction
-nnoremap <silent> <leader>$ :call <SID>StripTrailingWhitespaces()<CR>
+nnoremap <silent> <buffer> <leader>$ :call <SID>StripTrailingWhitespaces()<CR>
 
 " Like windo but restore the current window.
 function! s:WinDo(command)
@@ -346,7 +347,7 @@ com! -nargs=+ -complete=command Tabdo call <SID>TabDo(<q-args>)
 autocmd filetype svn,*commit* setlocal spell
 
 "scrollbind all windows shortcut
-nnoremap <silent> <Leader>ww :Windo :set scb!<CR>
+nnoremap <silent> <LocalLeader>ww :Windo :set scb!<CR>
 
 " Fugitive
 nnoremap <silent> <leader>gs :Gstatus<CR>
@@ -382,9 +383,12 @@ set nobackup
 set noswapfile
 
 " The Silver Searcher
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor\ --skip-vcs-ignores\ --follow\ --smart-case
+if executable('rg')
+    " Use rg over grep
+    set grepprg=rg\ --vimgrep\ --smart-case\ --hidden
+elseif executable('ag')
+    " Use ag over grep
+    set grepprg=ag\ --nogroup\ --nocolor\ --skip-vcs-ignores\ --follow\ --smart-case
 endif
 
 " ale
