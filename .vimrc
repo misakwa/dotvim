@@ -167,6 +167,14 @@ if exists(':Tabularize')
     vmap <Leader>a<Bar> :Tabularize /<Bar><CR>
 endif
 
+nnoremap <silent> <c-p> :Files<cr>
+nnoremap <silent> <c-f> :Rg<cr>
+nmap <Leader>/ :Ag<cr>
+nmap <Leader>/b :Buffers<cr>
+nmap <Leader>/c :Commits<cr>
+nmap <Leader>/bc :BCommits<cr>
+nmap <Leader>/h :History<cr>
+
 "explorer mappings
 nnoremap <silent> <f2> :NERDTreeToggle<cr>:NERDTreeMirror<cr>
 nnoremap <silent> <f4> :UndotreeToggle<cr>
@@ -192,11 +200,13 @@ endif
 
 " GoldenView
 " Remap to avoid collissions with mine
-let g:goldenview__enable_default_mapping=0
-nmap <silent> <Leader>vs <Plug>GoldenViewSplit
-nmap <silent> <Leader>vm <Plug>GoldenViewSwitchWithLargest
-nmap <silent> <Leader>vn <Plug>GoldenViewNext
-nmap <silent> <Leader>vp <Plug>GoldenViewPrevious
+if !exists('g:vscode')
+    let g:goldenview__enable_default_mapping=0
+    nmap <silent> <Leader>vs <Plug>GoldenViewSplit
+    nmap <silent> <Leader>vm <Plug>GoldenViewSwitchWithLargest
+    nmap <silent> <Leader>vn <Plug>GoldenViewNext
+    nmap <silent> <Leader>vp <Plug>GoldenViewPrevious
+endif
 
 if $ITERM_PROFILE =~ "Presentation"
    set background=light

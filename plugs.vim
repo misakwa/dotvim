@@ -5,19 +5,20 @@ Plug 'tpope/vim-sensible'
 
 " Core Plugins
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-dispatch', {
-        \ 'on': ['Dispatch', 'Dispatch!', 'Start', 'Start!', 'Focus', 'Focus!', 'Make']
-    \}
+
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-eunuch'
+
 Plug 'editorconfig/editorconfig-vim'
 Plug 'w0rp/ale'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'roxma/nvim-yarp'
 Plug 'easymotion/vim-easymotion'
-Plug 'junegunn/fzf.vim'
+
+Plug 'junegunn/fzf', { 'do': 'yes \| ./install --bin' }
+Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Rg', 'Ag', 'Commits', 'BCommits', 'History'] }
 
 " File browsing
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
@@ -40,6 +41,7 @@ Plug 'Yggdroot/indentLine'
 " Colours
 Plug 'godlygeek/csapprox'
 Plug 'altercation/vim-colors-solarized'
+" Plug 'junegunn/seoul256.vim'
 
 " Auto-completion
 Plug 'SirVer/ultisnips'
@@ -48,12 +50,12 @@ Plug 'honza/vim-snippets'
 Plug 'vim-scripts/IndexedSearch'
 Plug 'Raimondi/delimitMate'
 Plug 'zhaocai/GoldenView.Vim'
-Plug 'valloric/youcompleteme', {'do': 'TERM=xterm ./install.py --all --system-libclang', 'frozen': 1 }
+Plug 'valloric/youcompleteme', {'do': 'git submodule update --init --recursive && TERM=xterm ./install.py --all --system-libclang', 'frozen': 1 }
 Plug 'ervandew/supertab'
 
 if executable('ctags')
     Plug 'ludovicchabant/vim-gutentags'
-    Plug 'liuchengxu/vista.vim', { 'on': 'Vista' }
+    Plug 'liuchengxu/vista.vim'
 endif
 
 
@@ -61,8 +63,9 @@ endif
 Plug 'andymass/vim-matchup'
 Plug 'solarnz/thrift.vim', { 'for': ['thrift'] }
 Plug 'groenewege/vim-less', { 'for': ['less', 'css'] }
-Plug 'derekwyatt/vim-scala', { 'for': ['scala', 'java'] }
-Plug 'mikelue/vim-maven-plugin', { 'for': ['scala', 'java'] }
+Plug 'derekwyatt/vim-scala', { 'for': ['scala', 'java', 'gradle'] }
+Plug 'mikelue/vim-maven-plugin', { 'for': ['scala', 'java', 'gradle'] }
+Plug 'udalov/kotlin-vim', { 'for': ['kotlin', 'kt', 'gradle'] }
 Plug 'nvie/vim-flake8', { 'for': ['python'] }
 Plug 'jmcantrell/vim-virtualenv', { 'for': ['python'] }
 Plug 'mattn/emmet-vim', { 'for': ['tpl', 'html','php','phtml','xml','xsl','xslt','xsd','css','sass','scss','less','mustache'] }
@@ -109,6 +112,9 @@ Plug 'posva/vim-vue', { 'for': ['vue'] }
 
 " jinja2 syntax
 Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['jinja', 'jinja2', 'j2', 'html', 'xml', 'phtml', 'mustache'] }
+
+" sql uppercase keywords
+Plug 'alcesleo/vim-uppercase-sql', { 'for': ['sql'] }
 
 " Dart syntax + flutter
 Plug 'dart-lang/dart-vim-plugin', { 'for': ['dart'] }
