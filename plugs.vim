@@ -15,12 +15,24 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'w0rp/ale'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'roxma/nvim-yarp'
-Plug 'easymotion/vim-easymotion'
 
+" Auto-completion
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+
+" File browsing
 Plug 'junegunn/fzf', { 'do': 'yes \| ./install --bin' }
 Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Rg', 'Ag', 'Commits', 'BCommits', 'History'] }
 
-" File browsing
+Plug 'easymotion/vim-easymotion'
+Plug 'vim-scripts/IndexedSearch'
+
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 
@@ -41,16 +53,9 @@ Plug 'Yggdroot/indentLine'
 " Colours
 Plug 'godlygeek/csapprox'
 Plug 'altercation/vim-colors-solarized'
-" Plug 'junegunn/seoul256.vim'
 
-" Auto-completion
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-
-Plug 'vim-scripts/IndexedSearch'
 Plug 'Raimondi/delimitMate'
 Plug 'zhaocai/GoldenView.Vim'
-Plug 'valloric/youcompleteme', {'do': 'git submodule update --init --recursive && TERM=xterm ./install.py --all --system-libclang', 'frozen': 1 }
 Plug 'ervandew/supertab'
 
 if executable('ctags')
@@ -118,7 +123,7 @@ Plug 'alcesleo/vim-uppercase-sql', { 'for': ['sql'] }
 
 " Dart syntax + flutter
 Plug 'dart-lang/dart-vim-plugin', { 'for': ['dart'] }
-Plug 'misakwa/vim-ycm-dart'
+" Plug 'misakwa/vim-ycm-dart'
 Plug 'thosakwe/vim-flutter', { 'for': ['dart'], 'on': ['FlutterRun', 'FlutterQuit', 'FlutterVsplit',
     \ 'FlutterTab', 'FlutterHotReload', 'FlutterHotRestart', 'FlutterDevices', 'FlutterSplit',
     \'FlutterEmilators', 'FlutterEmulatorLaunch'] }

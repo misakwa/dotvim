@@ -152,7 +152,7 @@ let g:NERDTreeCascadeOpenSingleChildDir=1
 let g:NERDTreeAutoDeleteBuffer=1
 let g:NETDTreeIgnore=['__pycache__', '.egg-info[[dir]]']
 
-" Tabular
+" Tabular code alignment
 if exists(':Tabularize')
     nmap <silent> <buffer> <LocalLeader>a& <Cmd>Tabularize /&<CR>
     vmap <silent> <buffer> <LocalLeader>a& <Cmd>Tabularize /&<CR>
@@ -168,8 +168,9 @@ if exists(':Tabularize')
     vmap <silent> <buffer> <LocalLeader>a<Bar> <Cmd>Tabularize /<Bar><CR>
 endif
 
-nnoremap <silent> <c-p> <Cmd>Rg<cr>
-nnoremap <silent> <c-f> <Cmd>Files<cr>
+" Searching
+nnoremap <silent> <c-p> <Cmd>Files<cr>
+nnoremap <silent> <c-f> <Cmd>Rg<cr>
 nnoremap <silent> <Leader>/ <Cmd>Ag<cr>
 nnoremap <silent> <Leader>/b <Cmd>Buffers<cr>
 nnoremap <silent> <Leader>/c <Cmd>Commits<cr>
@@ -221,28 +222,6 @@ if has('gui_macvim')
     set transparency=5      " Make the window slightly transparent
 endif
 
-" start: YouCompleteMe
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_filepath_completion_use_working_dir = 1
-let g:ycm_goto_buffer_command = 'new-or-existing-tab'
-" start: Make ycm play nice with supertab
-let g:ycm_key_invoke_completion = '<C-Space>'
-let g:ycm_auto_trigger = 1
-let g:ycm_key_list_select_completion = []
-let g:ycm_key_list_previous_completion = []
-" eo: Make ycm play nice with supertab
-
-" language servers - lsp
-let g:ycm_language_server = []
-if executable('rls')
-    let g:ycm_language_server +=  [{'name': 'rust', 'cmdline': ['rls'], 'filetypes': ['rust', 'rs']}]
-endif
-" eo: language servers - lsp
-
-" eo: YouCompleteMe
-
 " Ultisnips behaviour
 inoremap <silent> <buffer> <C-X><C-K> <C-X><C-K>
 
@@ -260,17 +239,6 @@ noremap <silent> <buffer> Q gq
 
 "make Y consistent with C and D
 nnoremap <silent> <buffer> Y y$
-
-"visual search mappings
-function! s:VSetSearch()
-    let temp = @@
-    norm! gvy
-    let @/ = '\V' . substitute(escape(@@, '\'), '\n', '\\n', 'g')
-    let @@ = temp
-endfunction
-vnoremap * :<C-u>call <SID>VSetSearch()<CR>//<CR>
-vnoremap # :<C-u>call <SID>VSetSearch()<CR>??<CR>
-
 
 "jump to last cursor position when opening a file
 "dont do it when writing a commit log entry
@@ -382,7 +350,7 @@ augroup END
 set nobackup
 set noswapfile
 
-" The Silver Searcher
+" Better grep
 if executable('rg')
     " Use rg over grep
     set grepprg=rg\ --vimgrep\ --smart-case\ --hidden
