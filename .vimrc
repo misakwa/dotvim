@@ -314,15 +314,16 @@ autocmd filetype svn,*commit* setlocal spell
 nnoremap <silent> <LocalLeader>ww :Windo :set scb!<CR>
 
 " Fugitive
-nnoremap <silent> <leader>gs :Gstatus<CR>
-nnoremap <silent> <leader>gd :Gdiff<CR>
-nnoremap <silent> <leader>gc :Gcommit<CR>
-nnoremap <silent> <leader>gb :Gblame<CR>
-nnoremap <silent> <leader>gl :Glog<CR>
-nnoremap <silent> <leader>gp :Git push<CR>
-nnoremap <silent> <leader>gw :Gwrite<CR>:GitGutter<CR>
-nnoremap <silent> <leader>gr :Gread<CR>:GitGutter<CR>
-nnoremap <silent> <leader>gg :GitGutterToggle<CR>
+nnoremap <silent> <leader>gs <Cmd>Gstatus<CR>
+nnoremap <silent> <leader>ge <Cmd>Gedit<CR>
+nnoremap <silent> <leader>gd <Cmd>Gdiff<CR>
+nnoremap <silent> <leader>gc <Cmd>Gcommit<CR>
+nnoremap <silent> <leader>gb <Cmd>Gblame<CR>
+nnoremap <silent> <leader>gl <Cmd>Glog<CR>
+nnoremap <silent> <leader>gp <Cmd>Git push<CR>
+nnoremap <silent> <leader>gw <Cmd>Gwrite<CR>:GitGutter<CR>
+nnoremap <silent> <leader>gr <Cmd>Gread<CR>:GitGutter<CR>
+nnoremap <silent> <leader>gg <Cmd>GitGutterToggle<CR>
 "http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
 "hacks from above (the url, not jesus) to delete fugitive buffers when we
 "leave them - otherwise the buffer list gets polluted
@@ -358,6 +359,8 @@ endif
 " ale
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_linters = {}
+nmap <silent> <C-Space> <Plug>(ale_previous_wrap)
+nmap <silent> <C-S-Space> <Plug>(ale_next_wrap)
 
 if executable('gopls')
     let g:ale_linters.go = ['gopls']
