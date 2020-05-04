@@ -227,12 +227,8 @@ inoremap <silent> <buffer> <C-X><C-K> <C-X><C-K>
 
 "Supertab
 set pumheight=25
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabCompletionContexts = ["s:ContextText", "s:ContextDiscover"]
-let g:SuperTabContextTextOmniPrecedence = ["&omnifunc", "&completefunc"]
-let g:SuperTabContextDiscoverDiscovery = ["&omnifunc:<c-x><c-o>","&completefunc:<c-x><c-u>"]
+let g:SuperTabDefaultCompletionType = 'context'
 let g:SuperTabClosePreviewOnPopupClose = 1
-let g:SuperTabRetainCompletionDuration = 'completion'
 
 "map Q to something useful
 noremap <silent> <buffer> Q gq
@@ -285,7 +281,7 @@ function! s:StripTrailingWhitespaces()
     let @/=_s
     call cursor(l, c)
 endfunction
-nnoremap <silent> <buffer> <leader>$ :call <SID>StripTrailingWhitespaces()<CR>
+nnoremap <silent> <buffer> <Leader>$ :call <SID>StripTrailingWhitespaces()<CR>
 
 " Like windo but restore the current window.
 function! s:WinDo(command)
