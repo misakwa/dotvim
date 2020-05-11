@@ -61,6 +61,8 @@ endif
 
 set cmdheight=2
 
+" hight/unhighlight search
+nnoremap <silent> <C-l> <Cmd>set hls!<Cr>
 " Quick Horizontal splits
 nnoremap <silent> _ <Cmd>sp<cr>
 " | : Quick vertical splits
@@ -132,8 +134,12 @@ set mouse=a
 "hide buffers when not displayed
 set hidden
 
-"tagbar settings
+"fzf
+let g:fzf_layout = { 'window': {'height': 0.6, 'width': 0.9 } }
+
+"tag browsing settings
 nnoremap <silent> <f3> <Cmd>Vista!!<cr>
+let g:vista_default_executive = 'vim_lsp'
 let g:vista_sidebar_width = 36
 let g:vista_close_on_jump = 1
 let g:vista#renderer#enable_icon = 0
@@ -197,17 +203,6 @@ cmap <silent> w!! w !sudo tee % >/dev/null
 "dont load csapprox if we no gui support - silences an annoying warning
 if !has("gui_running")
     let g:CSApprox_loaded = 1
-    let g:yankring_enabled=0
-endif
-
-" GoldenView
-" Remap to avoid collissions with mine
-if !exists('g:vscode')
-    let g:goldenview__enable_default_mapping=0
-    nmap <silent> <Leader>vs <Plug>GoldenViewSplit
-    nmap <silent> <Leader>vm <Plug>GoldenViewSwitchWithLargest
-    nmap <silent> <Leader>vn <Plug>GoldenViewNext
-    nmap <silent> <Leader>vp <Plug>GoldenViewPrevious
 endif
 
 if $ITERM_PROFILE =~ "Presentation"
@@ -281,7 +276,7 @@ function! s:StripTrailingWhitespaces()
     let @/=_s
     call cursor(l, c)
 endfunction
-nnoremap <silent> <buffer> <Leader>$ :call <SID>StripTrailingWhitespaces()<CR>
+nnoremap <silent> <LocalLeader>$ :call <SID>StripTrailingWhitespaces()<CR>
 
 " Like windo but restore the current window.
 function! s:WinDo(command)
@@ -359,8 +354,9 @@ endif
 " ale
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_linters = {}
-nmap <silent> <C-Space> <Plug>(ale_previous_wrap)
-nmap <silent> <C-S-Space> <Plug>(ale_next_wrap)
+let g:ale_python_auto_pipenv = 1
+nmap <silent> <LocalLeader>ep <Plug>(ale_previous_wrap)
+nmap <silent> <LocalLeader>en <Plug>(ale_next_wrap)
 
 if executable('gopls')
     let g:ale_linters.go = ['gopls']

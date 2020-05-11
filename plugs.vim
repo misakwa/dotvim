@@ -25,6 +25,7 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'liuchengxu/vista.vim'
 
 " File browsing
 Plug 'junegunn/fzf', { 'do': 'yes \| ./install --bin' }
@@ -58,11 +59,6 @@ Plug 'Raimondi/delimitMate'
 Plug 'zhaocai/GoldenView.Vim'
 Plug 'ervandew/supertab'
 
-if executable('ctags')
-    Plug 'ludovicchabant/vim-gutentags'
-    Plug 'liuchengxu/vista.vim'
-endif
-
 
 " Syntax Plugins
 Plug 'andymass/vim-matchup'
@@ -72,6 +68,7 @@ Plug 'derekwyatt/vim-scala', { 'for': ['scala', 'java', 'gradle'] }
 Plug 'mikelue/vim-maven-plugin', { 'for': ['scala', 'java', 'gradle'] }
 Plug 'udalov/kotlin-vim', { 'for': ['kotlin', 'kt', 'gradle'] }
 Plug 'nvie/vim-flake8', { 'for': ['python'] }
+Plug 'psf/black', { 'branch': 'stable', 'for': ['python'] }
 Plug 'jmcantrell/vim-virtualenv', { 'for': ['python'] }
 Plug 'mattn/emmet-vim', { 'for': ['tpl', 'html','php','phtml','xml','xsl','xslt','xsd','css','sass','scss','less','mustache'] }
 Plug 'gregsexton/MatchTag', { 'for': ['html', 'xml', 'xsl', 'xslt', 'xsd', 'jsx'] }
