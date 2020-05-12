@@ -69,6 +69,7 @@ Plug 'mikelue/vim-maven-plugin', { 'for': ['scala', 'java', 'gradle'] }
 Plug 'udalov/kotlin-vim', { 'for': ['kotlin', 'kt', 'gradle'] }
 Plug 'psf/black', { 'branch': 'stable', 'for': ['python'] }
 Plug 'petobens/poet-v', { 'for': ['python'] }
+Plug 'cespare/vim-toml', { 'for': ['toml'] }
 Plug 'mattn/emmet-vim', { 'for': ['tpl', 'html','php','phtml','xml','xsl','xslt','xsd','css','sass','scss','less','mustache'] }
 Plug 'gregsexton/MatchTag', { 'for': ['html', 'xml', 'xsl', 'xslt', 'xsd', 'jsx'] }
 Plug 'tpope/vim-ragtag', { 'for': ['html','xml','xsl','xslt','xsd', 'mustache'] }
