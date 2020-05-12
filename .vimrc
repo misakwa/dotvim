@@ -351,6 +351,7 @@ elseif executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor\ --skip-vcs-ignores\ --follow\ --smart-case
 endif
 
+let g:goldenview__enable_default_mapping = 0
 " ale
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_linters = {}
