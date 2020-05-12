@@ -351,11 +351,15 @@ elseif executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor\ --skip-vcs-ignores\ --follow\ --smart-case
 endif
 
+" GoldenView
 let g:goldenview__enable_default_mapping = 0
+
+" poetv
+let g:poetv_auto_activate = 0
+
 " ale
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_linters = {}
-let g:ale_python_auto_pipenv = 1
 nmap <silent> <LocalLeader>ep <Plug>(ale_previous_wrap)
 nmap <silent> <LocalLeader>en <Plug>(ale_next_wrap)
 
