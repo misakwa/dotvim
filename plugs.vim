@@ -95,10 +95,11 @@ Plug 'fatih/vim-go', { 'for': ['go'], 'do': ':GoUpdateBinaries' }
 Plug 'rust-lang/rust.vim', { 'for': ['rust', 'rs'] }
 
 " javascript syntax files
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'typescript', 'es6', 'jsx', 'ts', 'js']}
-Plug 'leafgarland/typescript-vim', { 'for': ['javascript', 'typescript', 'es6', 'ts', 'js', 'jsx']}
-Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx', 'js', 'ts', 'es6'] }
-Plug 'isruslan/vim-es6', { 'for': ['javascript', 'es6', 'ts', 'js'] }
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'typescript', 'es6', 'jsx', 'ts', 'js', 'tsx']}
+Plug 'leafgarland/typescript-vim', { 'for': ['javascript', 'typescript', 'es6', 'ts', 'js', 'jsx', 'tsx']}
+Plug 'peitalin/vim-jsx-typescript', { 'for': ['javascript', 'typescript', 'js', 'ts', 'jsx', 'tsx', 'es5', 'es6'] }
+Plug 'mxw/vim-jsx', { 'for': ['javascript', 'jsx', 'js', 'ts', 'es6', 'tsx'] }
+Plug 'isruslan/vim-es6', { 'for': ['javascript', 'es6', 'ts', 'js', 'jsx', 'tsx'] }
 Plug 'google/vim-jsonnet', { 'for': ['jsonnet'] }
 
 " erlang syntax files
