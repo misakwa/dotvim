@@ -144,6 +144,11 @@ let g:vista_sidebar_width = 36
 let g:vista_close_on_jump = 1
 let g:vista#renderer#enable_icon = 0
 
+"lsp setings
+let g:lsp_settings = {
+\ 'hie': {'cmd': ['hls', '--lsp']}
+\}
+
 "snipmate settings
 let g:snips_author = ""
 let g:snips_organization = ""

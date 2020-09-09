@@ -80,13 +80,7 @@ Plug 'kchmck/vim-coffee-script', { 'for': ['coffee'] }
 Plug 'rodjek/vim-puppet', { 'for': ['puppet'] }
 
 " Haskell syntax files
-Plug 'bitc/vim-hdevtools', { 'for': ['haskell'] }
-Plug 'eagletmt/ghcmod-vim', { 'for': ['haskell'] }
 Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell'] }
-Plug 'enomsg/vim-haskellConcealPlus', { 'for': ['haskell'] }
-Plug 'eagletmt/ghcmod-vim', { 'for': ['haskell'] }
-Plug 'eagletmt/neco-ghc', { 'for': ['haskell'] }
-Plug 'Twinside/vim-hoogle', { 'for': ['haskell'] }
 
 " golang syntax files
 Plug 'fatih/vim-go', { 'for': ['go'], 'do': ':GoUpdateBinaries' }
