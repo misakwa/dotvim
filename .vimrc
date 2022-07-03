@@ -39,7 +39,7 @@ else
 endif
 
 "undo settings
-if has("persistent_undo")
+if has("persistent_undo") && !exists('g:vscode')
     set undodir=$HOME/.undofiles
     set undofile
 endif
@@ -61,12 +61,14 @@ endif
 
 set cmdheight=2
 
-" hight/unhighlight search
-nnoremap <silent> <C-l> <Cmd>set hls!<Cr>
-" Quick Horizontal splits
-nnoremap <silent> _ <Cmd>sp<cr>
-" | : Quick vertical splits
-nnoremap <silent> <bar> <Cmd>vsp<cr>
+if !exists('g:vscode')
+    " hight/unhighlight search
+    nnoremap <silent> <C-l> <Cmd>set hls!<Cr>
+    " Quick Horizontal splits
+    nnoremap <silent> _ <Cmd>sp<cr>
+    " | : Quick vertical splits
+    nnoremap <silent> <bar> <Cmd>vsp<cr>
+endif
 
 "default indent settings
 set tabstop=4
@@ -106,43 +108,49 @@ set sidescroll=1
 set lazyredraw
 set ttyfast
 
-"load ftplugins and indent files
-filetype plugin indent on
-
 set tags=./.tags,.tags,./tags,./.vimtags,tags,vimtags
-let g:gutentags_ctags_tagfile='.tags'
-let g:gutentags_ctags_auto_set_tags = 0
-let g:gutentags_ctags_exclude_wildignore = 0
 
-let g:arline_powerline_fonts=0
-let g:airline#extensions#tmuxline#enabled=1
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tagbar#enabled=1
-let g:airline#extensions#tagbar#flags='f'
+if !exists('g:vscode')
+    "load ftplugins and indent files
+    filetype plugin indent on
 
-let g:tmuxline_theme='airline'
-let g:tmuxline_status_justify = 'center'
-let g:tmuxline_powerline_separators = 0
+    "turn on syntax highlighting
+    syntax on
 
-"turn on syntax highlighting
-syntax on
+    let g:gutentags_ctags_tagfile='.tags'
+    let g:gutentags_ctags_auto_set_tags = 0
+    let g:gutentags_ctags_exclude_wildignore = 0
 
-"some stuff to get the mouse going in term
-set mouse=a
-"set ttymouse=xterm2
+    let g:arline_powerline_fonts=0
+    let g:airline#extensions#tmuxline#enabled=1
+    let g:airline#extensions#tabline#enabled=1
+    let g:airline#extensions#tagbar#enabled=1
+    let g:airline#extensions#tagbar#flags='f'
 
-"hide buffers when not displayed
-set hidden
+    let g:tmuxline_theme='airline'
+    let g:tmuxline_status_justify = 'center'
+    let g:tmuxline_powerline_separators = 0
+
+    "some stuff to get the mouse going in term
+    set mouse=a
+    "set ttymouse=xterm2
+
+    "hide buffers when not displayed
+    set hidden
+
+endif
 
 "fzf
 let g:fzf_layout = { 'window': {'height': 0.6, 'width': 0.9 } }
 
-"tag browsing settings
-nnoremap <silent> <f3> <Cmd>Vista!!<cr>
-let g:vista_default_executive = 'vim_lsp'
-let g:vista_sidebar_width = 36
-let g:vista_close_on_jump = 1
-let g:vista#renderer#enable_icon = 0
+if !exists('g:vscode')
+    "tag browsing settings
+    nnoremap <silent> <f3> <Cmd>Vista!!<cr>
+    let g:vista_default_executive = 'vim_lsp'
+    let g:vista_sidebar_width = 36
+    let g:vista_close_on_jump = 1
+    let g:vista#renderer#enable_icon = 0
+endif
 
 "lsp setings
 let g:lsp_settings = {
@@ -153,15 +161,17 @@ let g:lsp_settings = {
 let g:snips_author = ""
 let g:snips_organization = ""
 
-"nerdtree settings
-let g:NERDTreeMouseMode=2
-let g:NERDTreeWinSize=45
-let g:NERDTreeQuitOnOpen=1
-let g:NERDTreeChDirMode=1
-let g:NERDTreeRespectWildIgnore=1
-let g:NERDTreeCascadeOpenSingleChildDir=1
-let g:NERDTreeAutoDeleteBuffer=1
-let g:NETDTreeIgnore=['__pycache__', '.egg-info[[dir]]']
+if !exists('g:vscode')
+    "nerdtree settings
+    let g:NERDTreeMouseMode=2
+    let g:NERDTreeWinSize=45
+    let g:NERDTreeQuitOnOpen=1
+    let g:NERDTreeChDirMode=1
+    let g:NERDTreeRespectWildIgnore=1
+    let g:NERDTreeCascadeOpenSingleChildDir=1
+    let g:NERDTreeAutoDeleteBuffer=1
+    let g:NETDTreeIgnore=['__pycache__', '.egg-info[[dir]]']
+endif
 
 " Tabular code alignment
 if exists(':Tabularize')
@@ -179,29 +189,33 @@ if exists(':Tabularize')
     vmap <silent> <buffer> <LocalLeader>a<Bar> <Cmd>Tabularize /<Bar><CR>
 endif
 
-" Searching
-nnoremap <silent> <c-p> <Cmd>Files<cr>
-nnoremap <silent> <c-f> <Cmd>Rg<cr>
-nnoremap <silent> <Leader>/ <Cmd>Ag<cr>
-nnoremap <silent> <Leader>/b <Cmd>Buffers<cr>
-nnoremap <silent> <Leader>/c <Cmd>Commits<cr>
-nnoremap <silent> <Leader>/bc <Cmd>BCommits<cr>
-nnoremap <silent> <Leader>/h <Cmd>History<cr>
+if !exists('g:vscode')
 
-"explorer mappings
-nnoremap <silent> <f2> <Cmd>NERDTreeToggle<cr><Cmd>NERDTreeMirror<cr>
-nnoremap <silent> <f4> <Cmd>UndotreeToggle<cr>
+    " Searching
+    nnoremap <silent> <c-p> <Cmd>Files<cr>
+    nnoremap <silent> <c-f> <Cmd>Rg<cr>
+    nnoremap <silent> <Leader>/ <Cmd>Ag<cr>
+    nnoremap <silent> <Leader>/b <Cmd>Buffers<cr>
+    nnoremap <silent> <Leader>/c <Cmd>Commits<cr>
+    nnoremap <silent> <Leader>/bc <Cmd>BCommits<cr>
+    nnoremap <silent> <Leader>/h <Cmd>History<cr>
 
-let g:undotree_SplitWidth = 60
-let g:undotree_DiffpanelHeight = 100
-let g:undotree_SetFocusWhenToggle=1
-let g:undotree_WindowLayout=1
+    "explorer mappings
+    nnoremap <silent> <f2> <Cmd>NERDTreeToggle<cr><Cmd>NERDTreeMirror<cr>
+    nnoremap <silent> <f4> <Cmd>UndotreeToggle<cr>
 
-nnoremap <silent> <buffer> j gj
-nnoremap <silent> <buffer> k gk
-nnoremap <silent> <buffer> <leader>l <Cmd>set list!<cr>
-nnoremap <silent> <buffer> <space> za
-vnoremap <silent> <buffer> <space> za
+    let g:undotree_SplitWidth = 60
+    let g:undotree_DiffpanelHeight = 100
+    let g:undotree_SetFocusWhenToggle=1
+    let g:undotree_WindowLayout=1
+
+    nnoremap <silent> <buffer> j gj
+    nnoremap <silent> <buffer> k gk
+    nnoremap <silent> <buffer> <leader>l <Cmd>set list!<cr>
+    nnoremap <silent> <buffer> <space> za
+    vnoremap <silent> <buffer> <space> za
+
+endif
 
 cmap <silent> w!! w !sudo tee % >/dev/null
 
@@ -210,25 +224,29 @@ if !has("gui_running")
     let g:CSApprox_loaded = 1
 endif
 
-if $ITERM_PROFILE =~ "Presentation"
-   set background=light
-else
+if !exists('g:vscode')
     set background=dark
+    " if $ITERM_PROFILE =~ "Presentation"
+    "     set background=light
+    " else
+    "     set background=dark
+    " endif
+
+    colorscheme solarized
+
+    if has('gui_macvim')
+        set transparency=5      " Make the window slightly transparent
+    endif
+
+    " Ultisnips behaviour
+    inoremap <silent> <buffer> <C-X><C-K> <C-X><C-K>
+
+    "Supertab
+    set pumheight=25
+    let g:SuperTabDefaultCompletionType = 'context'
+    let g:SuperTabClosePreviewOnPopupClose = 1
+
 endif
-
-colorscheme solarized
-
-if has('gui_macvim')
-    set transparency=5      " Make the window slightly transparent
-endif
-
-" Ultisnips behaviour
-inoremap <silent> <buffer> <C-X><C-K> <C-X><C-K>
-
-"Supertab
-set pumheight=25
-let g:SuperTabDefaultCompletionType = 'context'
-let g:SuperTabClosePreviewOnPopupClose = 1
 
 "map Q to something useful
 noremap <silent> <buffer> Q gq
@@ -248,25 +266,27 @@ function! SetCursorPosition()
     end
 endfunction
 
-"Hightlight repeated lines
-function! s:HighlightRepeats() range
-  let lineCounts = {}
-  let lineNum = a:firstline
-  while lineNum <= a:lastline
-    let lineText = getline(lineNum)
-    if lineText != ""
-      let lineCounts[lineText] = (has_key(lineCounts, lineText) ? lineCounts[lineText] : 0) + 1
-    endif
-    let lineNum = lineNum + 1
-  endwhile
-  exe 'syn clear Repeat'
-  for lineText in keys(lineCounts)
-    if lineCounts[lineText] >= 2
-      exe 'syn match Repeat "^' . escape(lineText, '".\^$*[]') . '$"'
-    endif
-  endfor
-endfunction
-command! -range=% HighlightRepeats <line1>,<line2>call <SID>HighlightRepeats()
+if !exists('g:vscode')
+    "Hightlight repeated lines
+    function! s:HighlightRepeats() range
+    let lineCounts = {}
+    let lineNum = a:firstline
+    while lineNum <= a:lastline
+        let lineText = getline(lineNum)
+        if lineText != ""
+        let lineCounts[lineText] = (has_key(lineCounts, lineText) ? lineCounts[lineText] : 0) + 1
+        endif
+        let lineNum = lineNum + 1
+    endwhile
+    exe 'syn clear Repeat'
+    for lineText in keys(lineCounts)
+        if lineCounts[lineText] >= 2
+        exe 'syn match Repeat "^' . escape(lineText, '".\^$*[]') . '$"'
+        endif
+    endfor
+    endfunction
+    command! -range=% HighlightRepeats <line1>,<line2>call <SID>HighlightRepeats()
+endif
 
 " Cleanup whitespaces and preserve state
 " http://vimcasts.org/episodes/tidying-whitespace/
@@ -313,17 +333,19 @@ autocmd filetype svn,*commit* setlocal spell
 "scrollbind all windows shortcut
 nnoremap <silent> <LocalLeader>ww :Windo :set scb!<CR>
 
-" Fugitive
-nnoremap <silent> <leader>gs <Cmd>Gstatus<CR>
-nnoremap <silent> <leader>ge <Cmd>Gedit<CR>
-nnoremap <silent> <leader>gd <Cmd>Gdiff<CR>
-nnoremap <silent> <leader>gc <Cmd>Gcommit<CR>
-nnoremap <silent> <leader>gb <Cmd>Gblame<CR>
-nnoremap <silent> <leader>gl <Cmd>Glog<CR>
-nnoremap <silent> <leader>gp <Cmd>Git push<CR>
-nnoremap <silent> <leader>gw <Cmd>Gwrite<CR>:GitGutter<CR>
-nnoremap <silent> <leader>gr <Cmd>Gread<CR>:GitGutter<CR>
-nnoremap <silent> <leader>gg <Cmd>GitGutterToggle<CR>
+if !exists('g:vscode')
+    " Fugitive
+    nnoremap <silent> <leader>gs <Cmd>Gstatus<CR>
+    nnoremap <silent> <leader>ge <Cmd>Gedit<CR>
+    nnoremap <silent> <leader>gd <Cmd>Gdiff<CR>
+    nnoremap <silent> <leader>gc <Cmd>Gcommit<CR>
+    nnoremap <silent> <leader>gb <Cmd>Gblame<CR>
+    nnoremap <silent> <leader>gl <Cmd>Glog<CR>
+    nnoremap <silent> <leader>gp <Cmd>Git push<CR>
+    nnoremap <silent> <leader>gw <Cmd>Gwrite<CR>:GitGutter<CR>
+    nnoremap <silent> <leader>gr <Cmd>Gread<CR>:GitGutter<CR>
+    nnoremap <silent> <leader>gg <Cmd>GitGutterToggle<CR>
+endif
 "http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
 "hacks from above (the url, not jesus) to delete fugitive buffers when we
 "leave them - otherwise the buffer list gets polluted
@@ -361,12 +383,16 @@ let g:goldenview__enable_default_mapping = 0
 
 " poetv
 let g:poetv_auto_activate = 0
+let g:poetv_set_environment = 1
 
 " ale
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_linters = {}
-nmap <silent> <LocalLeader>ep <Plug>(ale_previous_wrap)
-nmap <silent> <LocalLeader>en <Plug>(ale_next_wrap)
+
+if !exists('g:vscode')
+    nmap <silent> <LocalLeader>ep <Plug>(ale_previous_wrap)
+    nmap <silent> <LocalLeader>en <Plug>(ale_next_wrap)
+endif
 
 if executable('gopls')
     let g:ale_linters.go = ['gopls']
