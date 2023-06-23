@@ -30,7 +30,7 @@ set hls
 set wrap        "dont wrap lines
 set linebreak   "wrap lines at convenient points
 
-set textwidth=79
+set textwidth=120
 
 if has ('unnamedplus')
   set clipboard=unnamedplus
@@ -121,6 +121,11 @@ if !exists('g:vscode')
     let g:gutentags_ctags_auto_set_tags = 0
     let g:gutentags_ctags_exclude_wildignore = 0
 
+    let g:airline_experimental=1
+    let g:airline_left_sep='>'
+    let g:airline_right_sep='<'
+    let g:airline_detect_modified=1
+    let g:airline_detect_paste=1
     let g:arline_powerline_fonts=0
     let g:airline#extensions#tmuxline#enabled=1
     let g:airline#extensions#tabline#enabled=1
@@ -282,7 +287,7 @@ if !exists('g:vscode')
     for lineText in keys(lineCounts)
         if lineCounts[lineText] >= 2
         exe 'syn match Repeat "^' . escape(lineText, '".\^$*[]') . '$"'
-        endif
+       endif
     endfor
     endfunction
     command! -range=% HighlightRepeats <line1>,<line2>call <SID>HighlightRepeats()

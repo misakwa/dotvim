@@ -34,7 +34,7 @@ endif
 
 " File browsing
 if !exists('g:vscode')
-    Plug 'junegunn/fzf', { 'do': 'yes \| ./install --bin' }
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim', { 'on': ['Buffers', 'Files', 'Rg', 'Ag', 'Commits', 'BCommits', 'History'] }
 endif
 
@@ -42,7 +42,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'vim-scripts/IndexedSearch'
 
 if !exists('g:vscode')
-    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+    Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
     Plug 'mbbill/undotree', { 'on': 'UndotreeToggle' }
 endif
 
@@ -83,11 +83,7 @@ endif
 if !exists('g:vscode')
     " Syntax Plugins
     Plug 'andymass/vim-matchup'
-    Plug 'solarnz/thrift.vim', { 'for': ['thrift'] }
     Plug 'groenewege/vim-less', { 'for': ['less', 'css'] }
-    Plug 'derekwyatt/vim-scala', { 'for': ['scala', 'java', 'gradle'] }
-    Plug 'mikelue/vim-maven-plugin', { 'for': ['scala', 'java', 'gradle'] }
-    Plug 'udalov/kotlin-vim', { 'for': ['kotlin', 'kt', 'gradle'] }
     Plug 'psf/black', { 'branch': 'stable', 'for': ['python'] }
     Plug 'petobens/poet-v', { 'for': ['python'] }
     Plug 'cespare/vim-toml', { 'for': ['toml'] }
@@ -99,6 +95,16 @@ if !exists('g:vscode')
     Plug 'tpope/vim-rails', { 'for': ['ruby'] }
     Plug 'kchmck/vim-coffee-script', { 'for': ['coffee'] }
     Plug 'rodjek/vim-puppet', { 'for': ['puppet'] }
+
+    " Terraform
+    Plug 'hashivim/vim-terraform'
+    Plug 'juliosueiras/vim-terraform-completion', { 'for': ['terraform', 'tf', 'hcl'] }
+
+    " JVM Languages
+    Plug 'derekwyatt/vim-scala', { 'for': ['scala', 'java', 'gradle'] }
+    Plug 'mikelue/vim-maven-plugin', { 'for': ['scala', 'java', 'gradle'] }
+    Plug 'bazelbuild/vim-bazel', { 'for': ['java', 'scala', 'python', 'c', 'c++', 'objc']}
+    Plug 'udalov/kotlin-vim', { 'for': ['kotlin', 'kt', 'gradle'] }
 
     " Haskell syntax files
     Plug 'neovimhaskell/haskell-vim', { 'for': ['haskell'] }
