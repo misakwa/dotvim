@@ -104,7 +104,7 @@ if !exists('g:vscode')
     " JVM Languages
     Plug 'derekwyatt/vim-scala', { 'for': ['scala', 'java', 'gradle'] }
     Plug 'mikelue/vim-maven-plugin', { 'for': ['scala', 'java', 'gradle'] }
-    Plug 'bazelbuild/vim-bazel', { 'for': ['java', 'scala', 'python', 'c', 'c++', 'objc']}
+    " Plug 'bazelbuild/vim-bazel', { 'for': ['java', 'scala', 'python', 'c', 'c++', 'objc']}
     Plug 'udalov/kotlin-vim', { 'for': ['kotlin', 'kt', 'gradle'] }
 
     " Haskell syntax files
