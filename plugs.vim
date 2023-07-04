@@ -14,9 +14,10 @@ Plug 'tpope/vim-eunuch'
 if !exists('g:vscode')
     Plug 'editorconfig/editorconfig-vim'
     Plug 'w0rp/ale'
-    Plug 'roxma/vim-hug-neovim-rpc'
-    Plug 'roxma/nvim-yarp'
+    " Plug 'roxma/vim-hug-neovim-rpc'
+    " Plug 'roxma/nvim-yarp'
     Plug 'wesQ3/vim-windowswap'
+    " Plug 'mg979/vim-visual-multi'
 endif
 
 
