@@ -122,15 +122,17 @@ if !exists('g:vscode')
     let g:gutentags_ctags_exclude_wildignore = 0
 
     let g:airline_experimental=1
-    let g:airline_left_sep='>'
-    let g:airline_right_sep='<'
     let g:airline_detect_modified=1
     let g:airline_detect_paste=1
+    let g:airline_detect_spell=1
     let g:arline_powerline_fonts=0
     let g:airline#extensions#tmuxline#enabled=1
     let g:airline#extensions#tabline#enabled=1
-    let g:airline#extensions#tagbar#enabled=1
-    let g:airline#extensions#tagbar#flags='f'
+    let g:airline#extensions#vista#enabled=1
+    let g:airline#extensions#whitespace#enabled=1
+    let g:airline#extensions#windowswap#enabled=1
+    " let g:airline#extensions#tagbar#enabled=1
+    " let g:airline#extensions#tagbar#flags='f'
 
     let g:tmuxline_theme='airline'
     let g:tmuxline_status_justify = 'center'
@@ -146,7 +148,7 @@ if !exists('g:vscode')
 endif
 
 "fzf
-let g:fzf_layout = { 'window': {'height': 0.6, 'width': 0.9 } }
+let g:fzf_layout = { 'window': {'height': 0.7, 'width': 0.9 } }
 
 if !exists('g:vscode')
     "tag browsing settings

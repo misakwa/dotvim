@@ -16,6 +16,7 @@ if !exists('g:vscode')
     Plug 'w0rp/ale'
     Plug 'roxma/vim-hug-neovim-rpc'
     Plug 'roxma/nvim-yarp'
+    Plug 'wesQ3/vim-windowswap'
 endif
 
 
@@ -24,7 +25,6 @@ if !exists('g:vscode')
     Plug 'SirVer/ultisnips'
     Plug 'honza/vim-snippets'
 
-    Plug 'prabirshrestha/async.vim'
     Plug 'prabirshrestha/vim-lsp'
     Plug 'mattn/vim-lsp-settings'
     Plug 'prabirshrestha/asyncomplete.vim'
