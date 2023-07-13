@@ -50,15 +50,6 @@ endif
 
 set cmdheight=2
 
-if !exists('g:vscode')
-    " hight/unhighlight search
-    nnoremap <silent> <C-l> <Cmd>set hls!<Cr>
-    " Quick Horizontal splits
-    nnoremap <silent> _ <Cmd>sp<cr>
-    " | : Quick vertical splits
-    nnoremap <silent> <bar> <Cmd>vsp<cr>
-endif
-
 "default indent settings
 set tabstop=4
 set shiftwidth=4
@@ -138,15 +129,6 @@ endif
 
 "fzf
 let g:fzf_layout = { 'window': {'height': 0.7, 'width': 0.9 } }
-
-if !exists('g:vscode')
-    "tag browsing settings
-    nnoremap <silent> <f3> <Cmd>Vista!!<cr>
-    let g:vista_default_executive = 'vim_lsp'
-    let g:vista_sidebar_width = 36
-    let g:vista_close_on_jump = 1
-    let g:vista#renderer#enable_icon = 0
-endif
 
 "lsp setings
 let g:lsp_settings = {
