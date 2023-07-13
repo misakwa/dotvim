@@ -88,6 +88,9 @@ set sidescroll=1
 set lazyredraw
 set ttyfast
 
+set laststatus=2
+set showtabline=2
+
 set tags=./.tags,.tags,./tags,./.vimtags,tags,vimtags
 
 "fzf
@@ -102,34 +105,6 @@ let g:lsp_settings = {
 let g:snips_author = ""
 let g:snips_organization = ""
 
-if !exists('g:vscode')
-    "nerdtree settings
-    let g:NERDTreeMouseMode=2
-    let g:NERDTreeWinSize=45
-    let g:NERDTreeQuitOnOpen=1
-    let g:NERDTreeChDirMode=1
-    let g:NERDTreeRespectWildIgnore=1
-    let g:NERDTreeCascadeOpenSingleChildDir=1
-    let g:NERDTreeAutoDeleteBuffer=1
-    let g:NETDTreeIgnore=['__pycache__', '.egg-info[[dir]]']
-endif
-
-" Tabular code alignment
-if exists(':Tabularize')
-    nmap <silent> <buffer> <LocalLeader>a& <Cmd>Tabularize /&<CR>
-    vmap <silent> <buffer> <LocalLeader>a& <Cmd>Tabularize /&<CR>
-    nmap <silent> <buffer> <LocalLeader>a= <Cmd>Tabularize /=<CR>
-    vmap <silent> <buffer> <LocalLeader>a= <Cmd>Tabularize /=<CR>
-    nmap <silent> <buffer> <LocalLeader>a: <Cmd>Tabularize /:<CR>
-    vmap <silent> <buffer> <LocalLeader>a: <Cmd>Tabularize /:<CR>
-    nmap <silent> <buffer> <LocalLeader>a:: <Cmd>Tabularize /:\zs<CR>
-    vmap <silent> <buffer> <LocalLeader>a:: <Cmd>Tabularize /:\zs<CR>
-    nmap <silent> <buffer> <LocalLeader>a, <Cmd>Tabularize /,<CR>
-    vmap <silent> <buffer> <LocalLeader>a, <Cmd>Tabularize /,<CR>
-    nmap <silent> <buffer> <LocalLeader>a<Bar> <Cmd>Tabularize /<Bar><CR>
-    vmap <silent> <buffer> <LocalLeader>a<Bar> <Cmd>Tabularize /<Bar><CR>
-endif
-
 " Configure WhichKey
 " Re-add after figuring out why UI is so terrible in my terminal
 " if !exists('g:vscode')
@@ -137,25 +112,6 @@ endif
 " endif
 
 if !exists('g:vscode')
-
-    " Searching
-    nnoremap <silent> <c-p> <Cmd>Files<cr>
-    nnoremap <silent> <c-f> <Cmd>Rg<cr>
-    nnoremap <silent> <Leader>/ <Cmd>Ag<cr>
-    nnoremap <silent> <Leader>/b <Cmd>Buffers<cr>
-    nnoremap <silent> <Leader>/c <Cmd>Commits<cr>
-    nnoremap <silent> <Leader>/bc <Cmd>BCommits<cr>
-    nnoremap <silent> <Leader>/h <Cmd>History<cr>
-
-    "explorer mappings
-    nnoremap <silent> <f2> <Cmd>NERDTreeToggle<cr><Cmd>NERDTreeMirror<cr>
-    nnoremap <silent> <f4> <Cmd>UndotreeToggle<cr>
-
-    let g:undotree_SplitWidth = 60
-    let g:undotree_DiffpanelHeight = 100
-    let g:undotree_SetFocusWhenToggle=1
-    let g:undotree_WindowLayout=1
-
     nnoremap <silent> <buffer> j gj
     nnoremap <silent> <buffer> k gk
     nnoremap <silent> <buffer> <leader>l <Cmd>set list!<cr>
@@ -290,5 +246,4 @@ if !exists('g:vscode')
 
     "hide buffers when not displayed
     set hidden
-
 endif
