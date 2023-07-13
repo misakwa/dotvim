@@ -21,3 +21,13 @@ nnoremap <silent> <C-l> <Cmd>set hls!<Cr>
 nnoremap <silent> _ <Cmd>sp<cr>
 " | : Quick vertical splits
 nnoremap <silent> <bar> <Cmd>vsp<cr>
+
+" Bubber navigation
+nnoremap <silent> <buffer> j gj
+nnoremap <silent> <buffer> k gk
+nnoremap <silent> <buffer> <localleader>l <Cmd>set list!<cr>
+nnoremap <silent> <buffer> <space> za
+vnoremap <silent> <buffer> <space> za
+
+cmap <silent> w!! w !sudo tee % >/dev/null
+

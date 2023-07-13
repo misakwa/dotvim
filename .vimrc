@@ -111,17 +111,6 @@ let g:snips_organization = ""
 "     autocmd! User vim-which-key call which_key#register('<Space>', 'g:which_key_map', 'n')
 " endif
 
-if !exists('g:vscode')
-    nnoremap <silent> <buffer> j gj
-    nnoremap <silent> <buffer> k gk
-    nnoremap <silent> <buffer> <leader>l <Cmd>set list!<cr>
-    nnoremap <silent> <buffer> <space> za
-    vnoremap <silent> <buffer> <space> za
-
-endif
-
-cmap <silent> w!! w !sudo tee % >/dev/null
-
 "dont load csapprox if we no gui support - silences an annoying warning
 if !has("gui_running")
     let g:CSApprox_loaded = 1
