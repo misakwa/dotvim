@@ -90,43 +90,6 @@ set ttyfast
 
 set tags=./.tags,.tags,./tags,./.vimtags,tags,vimtags
 
-if !exists('g:vscode')
-    "load ftplugins and indent files
-    filetype plugin indent on
-
-    "turn on syntax highlighting
-    syntax on
-
-    let g:gutentags_ctags_tagfile='.tags'
-    let g:gutentags_ctags_auto_set_tags = 0
-    let g:gutentags_ctags_exclude_wildignore = 0
-
-    let g:airline_experimental=1
-    let g:airline_detect_modified=1
-    let g:airline_detect_paste=1
-    let g:airline_detect_spell=1
-    let g:arline_powerline_fonts=0
-    let g:airline#extensions#tmuxline#enabled=1
-    let g:airline#extensions#tabline#enabled=1
-    let g:airline#extensions#vista#enabled=1
-    let g:airline#extensions#whitespace#enabled=1
-    let g:airline#extensions#windowswap#enabled=1
-    " let g:airline#extensions#tagbar#enabled=1
-    " let g:airline#extensions#tagbar#flags='f'
-
-    let g:tmuxline_theme='airline'
-    let g:tmuxline_status_justify = 'center'
-    let g:tmuxline_powerline_separators = 0
-
-    "some stuff to get the mouse going in term
-    set mouse=a
-    "set ttymouse=xterm2
-
-    "hide buffers when not displayed
-    set hidden
-
-endif
-
 "fzf
 let g:fzf_layout = { 'window': {'height': 0.7, 'width': 0.9 } }
 
@@ -313,3 +276,19 @@ let g:EditorConfig_core_mode = 'external_command'
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
 set hidden
+
+if !exists('g:vscode')
+    "load ftplugins and indent files
+    filetype plugin indent on
+
+    "turn on syntax highlighting
+    syntax on
+
+    "some stuff to get the mouse going in term
+    set mouse=a
+    "set ttymouse=xterm2
+
+    "hide buffers when not displayed
+    set hidden
+
+endif
