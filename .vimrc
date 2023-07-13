@@ -169,19 +169,6 @@ let g:goldenview__enable_default_mapping = 0
 let g:poetv_auto_activate = 0
 let g:poetv_set_environment = 1
 
-" ale
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_linters = {}
-
-if !exists('g:vscode')
-    nmap <silent> <LocalLeader>ep <Plug>(ale_previous_wrap)
-    nmap <silent> <LocalLeader>en <Plug>(ale_next_wrap)
-endif
-
-if executable('gopls')
-    let g:ale_linters.go = ['gopls']
-endif
-
 let g:indent_guides_enable_on_vim_startup = 1
 
 let g:EditorConfig_core_mode = 'external_command'
