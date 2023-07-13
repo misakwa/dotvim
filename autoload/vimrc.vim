@@ -1,6 +1,6 @@
 " Cleanup whitespaces and preserve state
 " http://vimcasts.org/episodes/tidying-whitespace/
-function! s:StripTrailingWhitespaces()
+function vimrc#StripTrailingWhiteSpaces()
     " Preparation: save last search, and cursor position.
     let _s=@/
     let l = line(".")
@@ -11,37 +11,30 @@ function! s:StripTrailingWhitespaces()
     let @/=_s
     call cursor(l, c)
 endfunction
-nnoremap <silent> <LocalLeader>$ :call <SID>StripTrailingWhitespaces()<CR>
 
 " Like windo but restore the current window.
-function! s:WinDo(command)
+function! vimrc#WinDo(command)
   let currwin=winnr()
   execute 'windo ' . a:command
   execute currwin . 'wincmd w'
 endfunction
-com! -nargs=+ -complete=command Windo call <SID>WinDo(<q-args>)
 
 " Like bufdo but restore the current buffer.
-function! s:BufDo(command)
+function! vimrc#BufDo(command)
   let currBuff=bufnr("%")
   execute 'bufdo ' . a:command
   execute 'buffer ' . currBuff
 endfunction
-com! -nargs=+ -complete=command Bufdo call <SID>BufDo(<q-args>)
 
 " Like tabdo but restore the current tab.
-function! s:TabDo(command)
+function! vimrc#TabDo(command)
   let currTab=tabpagenr()
   execute 'tabdo ' . a:command
   execute 'tabn ' . currTab
 endfunction
-com! -nargs=+ -complete=command Tabdo call <SID>TabDo(<q-args>)
-
-"scrollbind all windows shortcut
-nnoremap <silent> <LocalLeader>ww :Windo :set scb!<CR>
 
 "Hightlight repeated lines
-function! s:HighlightRepeats() range
+function! vimrc#HighlightRepeats() range
     let lineCounts = {}
     let lineNum = a:firstline
     while lineNum <= a:lastline
@@ -58,4 +51,3 @@ function! s:HighlightRepeats() range
         endif
     endfor
 endfunction
-command! -range=% HighlightRepeats <line1>,<line2>call <SID>HighlightRepeats()
