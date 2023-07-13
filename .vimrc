@@ -137,12 +137,6 @@ if !exists('g:vscode')
 
 endif
 
-"map Q to something useful
-noremap <silent> <buffer> Q gq
-
-"make Y consistent with C and D
-nnoremap <silent> <buffer> Y y$
-
 "jump to last cursor position when opening a file
 "dont do it when writing a commit log entry
 autocmd BufReadPost * call SetCursorPosition()
@@ -157,20 +151,6 @@ endfunction
 
 "spell check when writing commit logs
 autocmd filetype svn,*commit* setlocal spell
-
-if !exists('g:vscode')
-    " Fugitive
-    nnoremap <silent> <leader>gs <Cmd>Git<CR>
-    nnoremap <silent> <localleader>ge <Cmd>Gedit<CR>
-    nnoremap <silent> <localleader>gd <Cmd>Gdiff<CR>
-    nnoremap <silent> <localleader>gc <Cmd>G commit<CR>
-    nnoremap <silent> <localleader>gb <Cmd>Gblame<CR>
-    nnoremap <silent> <leader>gl <Cmd>Gclog<CR>
-    nnoremap <silent> <leader>gp <Cmd>Git push<CR>
-    nnoremap <silent> <localleader>gw <Cmd>Gwrite<CR>:GitGutter<CR>
-    nnoremap <silent> <localleader>gr <Cmd>Gread<CR>:GitGutter<CR>
-    nnoremap <silent> <localleader>gg <Cmd>GitGutterToggle<CR>
-endif
 
 "Show cursorline in active window only
 augroup CursorLine

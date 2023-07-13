@@ -35,3 +35,9 @@ cmap <silent> w!! w !sudo tee % >/dev/null
 " Ultisnips behaviour
 inoremap <silent> <buffer> <C-X><C-K> <C-X><C-K>
 
+"map Q to something useful
+noremap <silent> <buffer> Q gq
+
+"make Y consistent with C and D
+nnoremap <silent> <buffer> Y y$
+
