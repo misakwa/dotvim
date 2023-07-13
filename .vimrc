@@ -130,9 +130,6 @@ if !exists('g:vscode')
         set transparency=5      " Make the window slightly transparent
     endif
 
-    " Ultisnips behaviour
-    inoremap <silent> <buffer> <C-X><C-K> <C-X><C-K>
-
     "Supertab
     set pumheight=25
     let g:SuperTabDefaultCompletionType = 'context'

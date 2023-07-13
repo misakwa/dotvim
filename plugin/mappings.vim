@@ -29,5 +29,9 @@ nnoremap <silent> <buffer> <localleader>l <Cmd>set list!<cr>
 nnoremap <silent> <buffer> <space> za
 vnoremap <silent> <buffer> <space> za
 
+" force write a file opened without sudo
 cmap <silent> w!! w !sudo tee % >/dev/null
+
+" Ultisnips behaviour
+inoremap <silent> <buffer> <C-X><C-K> <C-X><C-K>
 
