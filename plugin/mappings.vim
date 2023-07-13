@@ -40,4 +40,3 @@ noremap <silent> <buffer> Q gq
 
 "make Y consistent with C and D
 nnoremap <silent> <buffer> Y y$
-
