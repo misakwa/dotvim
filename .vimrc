@@ -331,16 +331,16 @@ nnoremap <silent> <LocalLeader>ww :Windo :set scb!<CR>
 
 if !exists('g:vscode')
     " Fugitive
-    nnoremap <silent> <leader>gs <Cmd>Gstatus<CR>
-    nnoremap <silent> <leader>ge <Cmd>Gedit<CR>
-    nnoremap <silent> <leader>gd <Cmd>Gdiff<CR>
-    nnoremap <silent> <leader>gc <Cmd>Gcommit<CR>
-    nnoremap <silent> <leader>gb <Cmd>Gblame<CR>
-    nnoremap <silent> <leader>gl <Cmd>Glog<CR>
+    nnoremap <silent> <leader>gs <Cmd>Git<CR>
+    nnoremap <silent> <localleader>ge <Cmd>Gedit<CR>
+    nnoremap <silent> <localleader>gd <Cmd>Gdiff<CR>
+    nnoremap <silent> <localleader>gc <Cmd>G commit<CR>
+    nnoremap <silent> <localleader>gb <Cmd>Gblame<CR>
+    nnoremap <silent> <leader>gl <Cmd>Gclog<CR>
     nnoremap <silent> <leader>gp <Cmd>Git push<CR>
-    nnoremap <silent> <leader>gw <Cmd>Gwrite<CR>:GitGutter<CR>
-    nnoremap <silent> <leader>gr <Cmd>Gread<CR>:GitGutter<CR>
-    nnoremap <silent> <leader>gg <Cmd>GitGutterToggle<CR>
+    nnoremap <silent> <localleader>gw <Cmd>Gwrite<CR>:GitGutter<CR>
+    nnoremap <silent> <localleader>gr <Cmd>Gread<CR>:GitGutter<CR>
+    nnoremap <silent> <localleader>gg <Cmd>GitGutterToggle<CR>
 endif
 "http://vimcasts.org/episodes/fugitive-vim-browsing-the-git-object-database/
 "hacks from above (the url, not jesus) to delete fugitive buffers when we
