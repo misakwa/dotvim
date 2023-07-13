@@ -51,3 +51,14 @@ function! vimrc#HighlightRepeats() range
         endif
     endfor
 endfunction
+
+"jump to last cursor position when opening a file
+"dont do it when writing a commit log entry
+function! vimrc#SetCursorPosition()
+    if &filetype !~ 'svn\|commit\c'
+        if line("'\"") > 0 && line("'\"") <= line("$")
+            exe "normal! g`\""
+            normal! zz
+        endif
+    end
+endfunction
