@@ -185,6 +185,12 @@ if exists(':Tabularize')
     vmap <silent> <buffer> <LocalLeader>a<Bar> <Cmd>Tabularize /<Bar><CR>
 endif
 
+" Configure WhichKey
+" Re-add after figuring out why UI is so terrible in my terminal
+" if !exists('g:vscode')
+"     autocmd! User vim-which-key call which_key#register('<Space>', 'g:which_key_map', 'n')
+" endif
+
 if !exists('g:vscode')
 
     " Searching

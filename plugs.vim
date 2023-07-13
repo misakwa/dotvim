@@ -18,6 +18,8 @@ if !exists('g:vscode')
     " Plug 'roxma/nvim-yarp'
     Plug 'wesQ3/vim-windowswap'
     " Plug 'mg979/vim-visual-multi'
+    " This plugin is useful, but the popup doesn't look very good in my terminal
+    " Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }
 endif
 
 
